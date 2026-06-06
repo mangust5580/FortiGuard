@@ -1,0 +1,54 @@
+@use '../helpers' as *;
+
+.features {
+  padding-block: fluid(44, 30);
+  background-color: var(--role-surface-primary);
+
+  &__header {
+    max-inline-size: 700px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    margin: fluid(36, 24) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    min-inline-size: 0;
+  }
+
+  &__card {
+    block-size: 100%;
+    min-block-size: 154px;
+  }
+
+  &__card-content {
+    min-inline-size: 0;
+  }
+
+  &__card-icon {
+    --card-icon-row-icon-color: var(--role-brand-hover);
+  }
+
+  @include media-down(md) {
+    &__list {
+      grid-template-columns: 1fr;
+    }
+
+    &__card {
+      min-block-size: auto;
+    }
+  }
+
+  @include media-down(xs) {
+    &__card {
+      --card-icon-row-gap: var(--space-3);
+      --card-icon-row-padding-inline: var(--space-3);
+      --card-icon-row-icon-box-size: 56px;
+    }
+  }
+}

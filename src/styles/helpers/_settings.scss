@@ -1,0 +1,14 @@
+$root-font-size: 16;
+$viewport-widths: (
+  'mobile': 320,
+  'laptop': 1280,
+  'desktop': 1600,
+);
+$breakpoints: (
+  'xs': 480px,
+  'sm': 575px,
+  'md': 767px,
+  'lg': 1023px,
+  'xl': 1279px,
+  'xxl': 1439px,
+);

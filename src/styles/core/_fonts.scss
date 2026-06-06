@@ -1,0 +1,9 @@
+@use '../helpers' as *;
+
+// Primary UI/heading typeface. Drop the Inter variable font (woff2/ttf) into
+// src/assets/fonts as Inter-VariableFont_wght.* — the fonts task converts ttf
+// to woff2 on build. Until then it gracefully falls back to Manrope.
+@include font-face('Inter', 'Inter-VariableFont_wght', 400 800);
+
+// Loaded fallback for the font stack.
+@include font-face('Manrope', 'Manrope-VariableFont_wght', 400 800);

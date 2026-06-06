@@ -1,0 +1,22 @@
+@use 'media' as *;
+@use '../functions' as *;
+
+// Framed content surface — the same border / translucent gradient / soft-shadow
+// recipe as `.card`, lifted into a mixin so long-form content areas (legal &
+// article main columns) and the TOC navigation read as part of the system
+// instead of bare text floating on the page background. Tokens only.
+// Usage: `.legal-content { @include content-shell; }`
+// `$padding` / `$radius` / `$background` stay overridable so a compact variant
+// (e.g. the TOC) or a calmer surface (article) can reuse the same frame.
+@mixin content-shell(
+  $padding: fluid(40, 24),
+  $radius: var(--radius-lg),
+  $background:
+    linear-gradient(98deg, var(--alpha-blue-08) 0%, var(--alpha-navy-24) 44%, var(--alpha-navy-36) 100%)
+) {
+  padding: $padding;
+  border: 1px solid var(--alpha-blue-16);
+  border-radius: $radius;
+  background: $background;
+  box-shadow: var(--shadow-soft);
+}

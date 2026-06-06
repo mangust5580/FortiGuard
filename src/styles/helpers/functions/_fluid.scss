@@ -1,0 +1,75 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use '../settings' as *;
+
+@function -resolve-fluid-point($value, $argument-name: '$value') {
+  @if meta.type-of($value) == 'number' {
+    @if math.is-unitless($value) {
+      @return $value;
+    }
+
+    @if math.compatible($value, 1px) {
+      @return math.div($value, 1px);
+    }
+  }
+
+  @if meta.type-of($value) == 'string' {
+    @if map.has-key($viewport-widths, $value) {
+      @return map.get($viewport-widths, $value);
+    }
+
+    @if map.has-key($breakpoints, $value) {
+      @return math.div(map.get($breakpoints, $value), 1px);
+    }
+  }
+
+  @error 'fluid-between(): #{$argument-name} must be a unitless number, px value, or settings key.';
+}
+
+@function fluid($max: 100, $min: 10) {
+  @return fluid-between($max, $min, mobile, desktop);
+}
+
+@function fluid-to($max: 100, $min: 10, $to: desktop, $from: mobile) {
+  @return fluid-between($max, $min, $from, $to);
+}
+
+@function fluid-between(
+  $max: 100,
+  $min: 10,
+  $from: mobile,
+  $to: desktop
+) {
+  @if not math.is-unitless($max) or not math.is-unitless($min) {
+    @error 'fluid-between(): $max and $min must be unitless numbers in pixels.';
+  }
+
+  @if $max < $min {
+    @error 'fluid-between(): $max must be greater than or equal to $min.';
+  }
+
+  @if $max == $min {
+    @return #{$max}px;
+  }
+
+  $from-point: -resolve-fluid-point($from, '$from');
+  $to-point: -resolve-fluid-point($to, '$to');
+
+  @if $to-point <= $from-point {
+    @error 'fluid-between(): $to must be greater than $from.';
+  }
+
+  $max-size: $max;
+  $min-size: $min;
+  $max-width: $to-point;
+  $min-width: $from-point;
+  $slope: math.div(($max-size - $min-size), ($max-width - $min-width));
+  $y-axis-intersection: -$min-width * $slope + $min-size;
+
+  @return clamp(
+    #{$min-size}px,
+    #{$y-axis-intersection}px + #{$slope * 100}vw,
+    #{$max-size}px
+  );
+}

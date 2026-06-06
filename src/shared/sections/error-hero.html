@@ -1,0 +1,51 @@
+<section class="error-hero" aria-labelledby="error-hero-title">
+  <div class="container">
+    <div class="error-hero__inner">
+      <div class="error-hero__content">
+        <h1 class="error-hero__title" id="error-hero-title">
+          <span class="error-hero__code">404</span>
+          <span class="error-hero__headline">Страница не найдена</span>
+        </h1>
+
+        <p class="error-hero__text">
+          Похоже, вы попали на несуществующую страницу. Возможно, она была перемещена или удалена.
+        </p>
+
+        <div class="error-hero__actions">
+          <a class="button button--primary" href="index.html">
+            <span class="button__text">На главную</span>
+          </a>
+          <button class="button button--secondary" type="button" data-js-history-back="index.html">
+            <span class="button__text">Назад</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="error-hero__visual" aria-hidden="true">
+        <picture class="error-hero__picture">
+          <source
+            srcset="images/error/error-404.avif 1x, images/error/error-404@2x.avif 2x"
+            type="image/avif"
+          >
+          <source
+            srcset="images/error/error-404.webp 1x, images/error/error-404@2x.webp 2x"
+            type="image/webp"
+          >
+          <source
+            srcset="images/error/error-404.png 1x, images/error/error-404@2x.png 2x"
+            type="image/png"
+          >
+          <img
+            class="error-hero__image"
+            src="images/error/error-404.png"
+            alt=""
+            width="800"
+            height="457"
+            loading="eager"
+            decoding="async"
+          >
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>

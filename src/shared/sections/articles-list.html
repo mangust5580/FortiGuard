@@ -1,0 +1,9 @@
+<ul class="articles__list">
+  <each loop="article in articles.teaserCards">
+    <li class="articles__item">
+      <scope with="article">
+        <include src="shared/components/article-card.html"></include>
+      </scope>
+    </li>
+  </each>
+</ul>

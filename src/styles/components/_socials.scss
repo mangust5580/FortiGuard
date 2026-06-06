@@ -1,0 +1,47 @@
+@use '../helpers' as *;
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    min-inline-size: 0;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 40px;
+    block-size: 40px;
+    border: 1px solid var(--role-border-default);
+    border-radius: var(--radius-sm);
+    background-color: var(--role-surface-raised);
+    color: var(--role-text-muted);
+    text-decoration: none;
+
+    @include transition((color, background-color, border-color, box-shadow));
+    @include focus-visible(var(--role-accent-focus), var(--role-surface-page), 1px, 3px);
+
+    @include hover {
+      border-color: var(--role-border-subtle);
+      background-color: var(--role-hover-overlay);
+      color: var(--role-text-primary);
+    }
+
+    &.is-disabled,
+    &[aria-disabled='true'] {
+      border-color: var(--role-border-divider);
+      background-color: var(--role-disabled-bg);
+      color: var(--role-text-muted);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}

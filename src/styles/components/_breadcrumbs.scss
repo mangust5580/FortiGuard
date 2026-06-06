@@ -1,0 +1,66 @@
+@use '../helpers' as *;
+
+.breadcrumbs {
+  max-inline-size: 100%;
+  color: var(--role-text-secondary);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+  line-height: var(--line-height-small);
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-2);
+    max-inline-size: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    color: var(--role-text-secondary);
+
+    &:last-child {
+      flex: 1 1 auto;
+      min-inline-size: 0;
+    }
+
+    &:not(:first-child)::before {
+      content: '/';
+      margin-inline-end: var(--space-2);
+      color: var(--role-text-subtle);
+    }
+  }
+
+  &__link {
+    color: var(--role-text-secondary);
+    text-decoration: none;
+
+    @include transition((color, box-shadow));
+    @include focus-visible(var(--role-accent-focus), var(--role-surface-page), 1px, 4px);
+
+    @include hover {
+      color: var(--role-brand-hover);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+
+  &__current {
+    display: inline-block;
+    overflow: hidden;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+
+    // Neutral muted gray: quieter than the secondary link, no lilac tint
+    // (the old `text-muted` token is #6c72af and read as purple).
+    color: var(--role-text-inverse-muted);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

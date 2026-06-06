@@ -1,0 +1,5 @@
+@mixin emit-vars($prefix, $tokens) {
+  @each $name, $value in $tokens {
+    --#{$prefix}-#{$name}: #{$value};
+  }
+}

@@ -1,0 +1,514 @@
+@use '../helpers' as *;
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding-block: fluid(60, 42) fluid(32, 26);
+  background:
+    radial-gradient(78% 90% at 10% 0%, var(--alpha-blue-08), transparent 70%),
+    linear-gradient(180deg, var(--alpha-navy-16) 0%, var(--role-surface-primary) 100%),
+    var(--role-surface-primary);
+  color: var(--role-text-secondary);
+  border-block-start: 1px solid var(--alpha-blue-16);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--alpha-blue-36) 50%, transparent 100%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: var(--z-index-content);
+    display: grid;
+    gap: fluid(36, 28);
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(360px, 1.25fr) minmax(280px, 0.95fr);
+    gap: fluid(56, 32);
+    min-inline-size: 0;
+  }
+
+  &__brand-column {
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+    min-inline-size: 0;
+  }
+
+  &__brand.logo {
+    justify-self: start;
+  }
+
+  &__tagline {
+    max-inline-size: 280px;
+    margin: 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+  }
+
+  &__socials.socials {
+    gap: var(--space-2);
+    margin-block-start: var(--space-1);
+  }
+
+  &__socials .socials__link {
+    inline-size: 44px;
+    block-size: 44px;
+    border-color: var(--alpha-blue-16);
+    background-color: var(--alpha-navy-24);
+    color: var(--role-text-secondary);
+
+    @include hover {
+      border-color: var(--alpha-blue-48);
+      background-color: var(--alpha-blue-16);
+      color: var(--role-brand-hover);
+    }
+  }
+
+  &__socials .icon {
+    --icon-size: 20px;
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: fluid(48, 28);
+    min-inline-size: 0;
+  }
+
+  &__nav-group,
+  &__contacts {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    min-inline-size: 0;
+  }
+
+  &__contacts {
+    font-style: normal;
+  }
+
+  &__heading {
+    margin: 0;
+    color: var(--role-text-primary);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body-strong);
+    line-height: var(--line-height-body);
+  }
+
+  &__list,
+  &__contact-list,
+  &__legal-list {
+    display: grid;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item,
+  &__contact-item,
+  &__legal-item {
+    min-inline-size: 0;
+  }
+
+  &__link {
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    text-decoration: none;
+
+    @include transition-color;
+    @include focus-visible(var(--role-accent-focus), var(--role-surface-page), 1px, 3px);
+
+    @include hover {
+      color: var(--role-brand-hover);
+    }
+  }
+
+  &__contact-list {
+    gap: var(--space-3);
+  }
+
+  &__contact-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-3);
+  }
+
+  &__contact-icon {
+    --icon-size: 22px;
+
+    margin-block-start: 1px;
+    color: var(--role-brand-hover);
+    fill: none;
+    stroke: currentcolor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+  }
+
+  &__contact-text {
+    min-inline-size: 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+  }
+
+  &__accordion.accordion {
+    display: none;
+  }
+
+  &__accordion-contacts {
+    font-style: normal;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3) var(--space-6);
+    padding-block-start: var(--space-5);
+    border-block-start: 1px solid var(--alpha-blue-16);
+  }
+
+  &__copyright {
+    margin: 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+  }
+
+  &__legal-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-5);
+  }
+
+  &__legal-link {
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+  }
+
+  @include media-down(lg) {
+    &__main {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: fluid(56, 44) fluid(44, 28);
+    }
+
+    &__brand-column {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-column: 1 / -1;
+      grid-row: 1;
+      place-items: center start;
+      gap: var(--space-3) var(--space-6);
+      text-align: start;
+    }
+
+    &__brand.logo {
+      grid-column: 1;
+      justify-self: start;
+    }
+
+    &__tagline {
+      grid-column: 1;
+      max-inline-size: 360px;
+    }
+
+    &__socials.socials {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      justify-content: flex-end;
+      place-self: center end;
+    }
+
+    &__nav {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-column: 1 / 3;
+      grid-row: 2;
+      max-inline-size: none;
+    }
+
+    &__contacts {
+      grid-column: 3;
+      grid-row: 2;
+    }
+  }
+
+  @include media-down(md) {
+    &__main {
+      grid-template-columns: minmax(140px, 0.85fr) minmax(220px, 1.05fr) minmax(236px, 0.95fr);
+      gap: var(--space-12) var(--space-4);
+      max-inline-size: 900px;
+      margin-inline: auto;
+    }
+
+    &__brand-column {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: var(--space-4);
+      text-align: center;
+    }
+
+    &__brand.logo,
+    &__tagline,
+    &__socials.socials {
+      grid-column: 1;
+      grid-row: auto;
+      justify-self: center;
+    }
+
+    &__tagline {
+      max-inline-size: 360px;
+    }
+
+    &__socials.socials {
+      justify-content: center;
+      place-self: auto center;
+      margin-block-start: 0;
+    }
+
+    &__socials .socials__link {
+      inline-size: 40px;
+      block-size: 40px;
+    }
+
+    &__socials .icon {
+      --icon-size: 18px;
+    }
+
+    &__nav {
+      grid-column: 1 / 3;
+      grid-row: 2;
+      gap: var(--space-5);
+    }
+
+    &__contacts {
+      grid-column: 3;
+      grid-row: 2;
+      justify-items: start;
+      justify-self: center;
+      max-inline-size: 270px;
+      text-align: start;
+    }
+
+    &__contact-item {
+      justify-content: start;
+      text-align: start;
+    }
+
+    &__bottom {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      text-align: center;
+    }
+
+    &__copyright,
+    &__legal-link {
+      font-size: var(--font-size-body-lg);
+      line-height: var(--line-height-body-lg);
+    }
+
+    &__legal-list {
+      justify-content: center;
+    }
+  }
+
+  @include media-down(sm) {
+    padding-block: var(--space-8) var(--space-5);
+
+    &__inner {
+      gap: var(--space-6);
+    }
+
+    &__main {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    &__brand-column,
+    &__accordion {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    &__nav,
+    &__contacts {
+      display: none;
+    }
+
+    &__brand-column {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: var(--space-3);
+      text-align: center;
+    }
+
+    &__brand.logo,
+    &__tagline,
+    &__socials.socials {
+      grid-column: auto;
+      grid-row: auto;
+      justify-self: center;
+    }
+
+    &__tagline {
+      max-inline-size: 280px;
+    }
+
+    &__socials.socials {
+      justify-content: center;
+      gap: var(--space-2);
+    }
+
+    &__socials .socials__link {
+      inline-size: 36px;
+      block-size: 36px;
+    }
+
+    &__socials .icon {
+      --icon-size: 18px;
+    }
+
+    &__accordion.accordion {
+      display: grid;
+      gap: 0;
+      inline-size: min(100%, 380px);
+      margin-inline: auto;
+      border-block-start: 1px solid var(--alpha-blue-16);
+    }
+
+    &__accordion-item.accordion__item {
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    &__accordion-item.accordion__item + &__accordion-item.accordion__item {
+      border-block-start: 1px solid var(--alpha-blue-08);
+    }
+
+    &__accordion-trigger.accordion__trigger {
+      min-block-size: 44px;
+      padding-block: var(--space-3);
+      padding-inline: var(--space-2);
+      color: var(--role-text-primary);
+
+      @include hover {
+        background-color: var(--alpha-blue-08);
+      }
+    }
+
+    &__accordion-title.accordion__title {
+      font-size: var(--font-size-body);
+      line-height: var(--line-height-body);
+    }
+
+    &__accordion-icon.accordion__icon {
+      color: var(--role-text-secondary);
+    }
+
+    &__accordion-item.is-open &__accordion-title.accordion__title,
+    &__accordion-item.is-open &__accordion-icon.accordion__icon {
+      color: var(--role-brand-hover);
+    }
+
+    // Collapse mechanics mirror the shared accordion: the panel divider and the
+    // content padding live on the open state only. Keeping `padding-block` on the
+    // base content leaves a visible sliver of links under a closed header — a
+    // `0fr` grid track collapses the content height but not its padding.
+    &__accordion-content.accordion__content {
+      padding-inline: var(--space-2);
+      text-align: center;
+    }
+
+    &__accordion-item.is-open &__accordion-panel.accordion__panel {
+      border-block-start-color: var(--alpha-blue-08);
+    }
+
+    &__accordion-item.is-open &__accordion-content.accordion__content {
+      padding-block: var(--space-2) var(--space-3);
+    }
+
+    &__accordion-content .footer__list,
+    &__accordion-content .footer__contact-list {
+      justify-items: center;
+      gap: var(--space-1);
+    }
+
+    &__accordion-content .footer__contact-list {
+      gap: var(--space-2);
+    }
+
+    &__accordion-content .footer__contact-item {
+      inline-size: fit-content;
+      max-inline-size: 100%;
+      text-align: start;
+    }
+
+    &__bottom {
+      flex-direction: column;
+      gap: var(--space-2);
+      padding-block-start: var(--space-3);
+    }
+
+    &__copyright,
+    &__legal-link {
+      font-size: var(--font-size-body);
+      line-height: var(--line-height-body);
+    }
+
+    &__legal-list {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+  }
+
+  @include media-down(xs) {
+    padding-block: var(--space-6) var(--space-5);
+
+    &__inner,
+    &__main {
+      gap: var(--space-5);
+    }
+
+    &__brand-column {
+      gap: var(--space-2);
+    }
+
+    &__socials.socials {
+      margin-block-start: 0;
+    }
+
+    &__accordion.accordion {
+      inline-size: 100%;
+    }
+
+    &__accordion-trigger.accordion__trigger {
+      min-block-size: 42px;
+      padding-block: var(--space-2);
+    }
+
+    &__bottom {
+      gap: var(--space-2);
+      padding-block-start: var(--space-3);
+    }
+  }
+}

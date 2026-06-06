@@ -1,0 +1,11 @@
+$durations: (
+  'fast': 150ms,
+  'base': 250ms,
+  'slow': 400ms,
+  'loop': 800ms,
+);
+$easings: (
+  'standard': ease-in-out,
+  'in': ease-in,
+  'out': ease-out,
+);

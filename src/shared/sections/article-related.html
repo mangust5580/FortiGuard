@@ -1,0 +1,27 @@
+<section class="article-related" aria-labelledby="article-related-title">
+  <div class="container">
+    <div class="article-related__topline">
+      <div class="article-related__heading section-heading">
+        <h2 class="section-heading__title" id="article-related-title">Все статьи</h2>
+        <p class="section-heading__lead">
+          Продолжите изучать практики мониторинга, реагирования и защиты инфраструктуры.
+        </p>
+      </div>
+
+      <a class="articles__all-link article-related__all-link" href="articles.html">
+        <span>Все статьи</span>
+        <span class="articles__all-link-icon" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <ul class="articles__list article-related__list">
+      <each loop="article in articles.relatedCards">
+        <li class="articles__item">
+          <scope with="article">
+            <include src="shared/components/article-card.html"></include>
+          </scope>
+        </li>
+      </each>
+    </ul>
+  </div>
+</section>

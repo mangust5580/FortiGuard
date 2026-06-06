@@ -1,0 +1,111 @@
+<section
+  class="modal modal--request request-modal"
+  id="demo"
+  data-js-modal="demo"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="demo-modal-title"
+  hidden
+>
+  <div class="modal__overlay" data-js-modal-close></div>
+
+  <div class="modal__dialog request-modal__dialog" data-js-modal-dialog>
+    <form class="request-form request-modal__form" action="#" method="post" data-js-modal-form>
+      <div class="request-modal__header">
+        <p class="request-modal__brand">
+          <img src="images/logo.svg" alt="" width="32" height="32">
+          <span>FortiGuard</span>
+        </p>
+
+        <button class="modal__close request-modal__close" type="button" data-js-modal-close aria-label="Закрыть окно запроса демо">
+          <svg class="modal__close-icon icon" aria-hidden="true" focusable="false">
+            <use href="icons/sprite.svg#icon-demo-close"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="request-modal__body">
+        <div class="request-modal__intro">
+          <h2 class="modal__title request-modal__title" id="demo-modal-title">Запросить демо</h2>
+          <p class="request-modal__lead">
+            Оставьте контакты, и мы покажем, как FortiGuard поможет защитить вашу инфраструктуру.
+          </p>
+        </div>
+
+        <include src="shared/forms/demo-request.html"></include>
+      </div>
+
+      <div
+        class="request-modal__success"
+        role="status"
+        aria-live="polite"
+        aria-labelledby="demo-modal-success-title"
+        data-js-modal-success
+        hidden
+      >
+        <div class="request-modal__success-card">
+          <span class="icon-box request-modal__success-icon" aria-hidden="true">
+            <svg class="icon icon--lg icon-box__icon" aria-hidden="true" focusable="false">
+              <use href="icons/sprite.svg#icon-security-shield-check"></use>
+            </svg>
+          </span>
+
+          <div class="request-modal__success-content">
+            <h2
+              class="modal__title request-modal__success-title"
+              id="demo-modal-success-title"
+              tabindex="-1"
+              data-js-modal-success-title
+            >
+              Заявка отправлена
+            </h2>
+            <p class="request-modal__success-text">
+              Спасибо. Мы свяжемся с вами в течение 1 рабочего часа и покажем, как FortiGuard может помочь
+              защитить вашу инфраструктуру.
+            </p>
+          </div>
+
+          <div class="request-modal__success-actions">
+            <button
+              class="button button--primary button--sm"
+              type="button"
+              data-js-modal-success-close
+              data-js-modal-close
+            >
+              <span class="button__text">Закрыть</span>
+            </button>
+            <button class="button button--secondary button--sm" type="button" data-js-modal-success-reset>
+              <span class="button__text">Отправить ещё одну заявку</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="request-form__footer request-modal__footer">
+        <label class="choice choice--checkbox request-form__agreement">
+          <input class="choice__input" type="checkbox" name="privacy" required>
+          <span class="choice__box" aria-hidden="true"></span>
+          <span class="choice__text">Я согласен с <a class="request-form__privacy-link" href="policy.html">политикой конфиденциальности</a></span>
+        </label>
+
+        <div class="request-form__bottom">
+          <p class="request-form__note">
+            <svg class="request-form__note-icon icon" aria-hidden="true" focusable="false">
+              <use href="icons/sprite.svg#icon-demo-note-clock"></use>
+            </svg>
+            <span>Ответим в течение 1 рабочего часа</span>
+          </p>
+
+          <div class="request-form__actions">
+            <button class="button button--primary button--sm" type="submit">
+              <span class="button__text">Запросить демо</span>
+            </button>
+            <button class="button button--secondary button--sm" type="button" data-js-modal-close>
+              <span class="button__text">Отмена</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+$layout: (
+  'container-max': 1200px,
+  'container-inline': 24px,
+  'container-inline-mobile': 16px,
+  'section-y': 120px,
+  'section-y-mobile': 64px,
+  // Full occupied height of the sticky header: inner content + 1px bottom border.
+  'header-height': 73px,
+);
+$z-indexes: (
+  'base': 0,
+  'content': 1,
+  'header': 100,
+  'overlay': 900,
+  'modal': 1000,
+  'skip-link': 1100,
+);

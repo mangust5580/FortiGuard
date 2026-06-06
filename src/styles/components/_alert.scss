@@ -1,0 +1,101 @@
+@use '../helpers' as *;
+
+.alert {
+  --alert-color: var(--role-accent-info);
+  --alert-border: var(--role-accent-info);
+  --alert-background: var(--role-info-subtle);
+
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--alert-border);
+  border-radius: var(--radius-md);
+  background-color: var(--alert-background);
+  color: var(--role-text-primary);
+
+  @include transition((opacity, transform, border-color, background-color, box-shadow));
+
+  &__icon {
+    flex: 0 0 auto;
+    color: var(--alert-color);
+  }
+
+  &__content {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--alert-color);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body-strong);
+    line-height: var(--line-height-body);
+  }
+
+  &__text {
+    margin: var(--space-1) 0 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+  }
+
+  &__close {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    inline-size: 32px;
+    block-size: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-xs);
+    background-color: transparent;
+    color: var(--role-text-muted);
+    cursor: pointer;
+
+    @include transition((color, background-color, box-shadow));
+    @include focus-visible(var(--role-accent-focus), var(--role-surface-page), 1px, 4px);
+
+    @include hover {
+      background-color: var(--role-hover-overlay);
+      color: var(--alert-color);
+    }
+  }
+
+  &--success {
+    --alert-color: var(--role-accent-success);
+    --alert-border: var(--role-accent-success);
+    --alert-background: var(--role-success-subtle);
+  }
+
+  &--warning {
+    --alert-color: var(--role-accent-warning);
+    --alert-border: var(--role-accent-warning);
+    --alert-background: var(--role-warning-subtle);
+  }
+
+  &--danger {
+    --alert-color: var(--role-accent-danger);
+    --alert-border: var(--role-accent-danger);
+    --alert-background: var(--role-danger-subtle);
+  }
+
+  &--info {
+    --alert-color: var(--role-accent-info);
+    --alert-border: var(--role-accent-info);
+    --alert-background: var(--role-info-subtle);
+  }
+
+  &.is-dismissed {
+    opacity: 0%;
+    pointer-events: none;
+    transform: translateY(-4px);
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+}

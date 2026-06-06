@@ -1,0 +1,34 @@
+@use '../helpers' as *;
+
+.section-heading {
+  max-inline-size: 760px;
+  margin-inline: auto;
+  text-align: center;
+
+  &__title {
+    margin: 0;
+    color: var(--role-text-primary);
+    font-size: fluid-type('h2');
+    font-weight: var(--font-weight-h2);
+    line-height: var(--line-height-h2);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  &__lead {
+    margin: var(--space-4) 0 0;
+    color: var(--role-text-inverse-muted);
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+
+    @include media-between(sm, md) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  @include media-down(md) {
+    margin-inline: 0;
+    text-align: left;
+  }
+}

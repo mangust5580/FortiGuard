@@ -1,0 +1,132 @@
+@use '../helpers' as *;
+
+.choice {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: var(--role-text-primary);
+  cursor: pointer;
+  user-select: none;
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  &__box {
+    position: relative;
+    flex-shrink: 0;
+    inline-size: 18px;
+    block-size: 18px;
+    margin-block-start: 2px;
+    border: 1px solid var(--role-border-default);
+    background-color: var(--role-surface-base);
+    color: var(--role-text-inverse);
+    cursor: inherit;
+
+    @include transition((border-color, background-color, box-shadow, opacity));
+  }
+
+  &__text {
+    color: var(--role-text-primary);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+    letter-spacing: var(--letter-spacing-normal);
+    cursor: inherit;
+
+    a {
+      color: var(--role-accent-brand);
+
+      @include transition-color;
+      @include focus-visible;
+
+      @include hover {
+        color: var(--role-brand-hover);
+      }
+    }
+  }
+
+  &--checkbox {
+    .choice__box {
+      border-radius: var(--radius-xs);
+    }
+
+    .choice__input:checked + .choice__box {
+      border-color: var(--role-accent-brand);
+      background-color: var(--role-accent-brand);
+    }
+
+    .choice__input:checked + .choice__box::after {
+      content: '';
+      position: absolute;
+      inset-block-start: 2px;
+      inset-inline-start: 6px;
+      inline-size: 4px;
+      block-size: 9px;
+      transform: rotate(45deg);
+      border-block-end: 2px solid currentcolor;
+      border-inline-end: 2px solid currentcolor;
+    }
+  }
+
+  &--radio {
+    .choice__box {
+      border-radius: var(--radius-full);
+    }
+
+    .choice__input:checked + .choice__box {
+      border-color: var(--role-accent-brand);
+      background-color: var(--role-accent-brand);
+    }
+
+    .choice__input:checked + .choice__box::after {
+      content: '';
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      inline-size: 8px;
+      block-size: 8px;
+      border-radius: var(--radius-full);
+      background-color: var(--role-text-inverse);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .choice__input:focus-visible + .choice__box {
+    @include ring-shadow(var(--role-accent-focus), var(--role-surface-page), 1px, 4px);
+  }
+
+  &:not(.choice--disabled) .choice__input:not(:disabled, :checked) + .choice__box {
+    @include hover {
+      border-color: var(--role-border-subtle);
+    }
+  }
+
+  .choice__input:disabled + .choice__box,
+  &.choice--disabled .choice__box {
+    border-color: var(--role-border-divider);
+    background-color: var(--role-disabled-bg);
+    box-shadow: none;
+    color: var(--role-text-inverse-muted);
+  }
+
+  .choice__input:disabled ~ .choice__text,
+  &.choice--disabled .choice__text {
+    color: var(--role-text-muted);
+  }
+
+  .choice__input:disabled ~ .choice__text a,
+  &.choice--disabled .choice__text a {
+    color: var(--role-text-muted);
+  }
+
+  .choice__input:disabled ~ .choice__text,
+  .choice__input:disabled + .choice__box,
+  &.choice--disabled {
+    cursor: not-allowed;
+  }
+
+  .choice__input:disabled:focus-visible + .choice__box {
+    outline: none;
+    box-shadow: none;
+  }
+}

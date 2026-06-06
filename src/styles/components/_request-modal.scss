@@ -1,0 +1,207 @@
+@use '../helpers' as *;
+
+.request-modal {
+  &__dialog {
+    background-color: var(--role-surface-primary);
+    background-image:
+      radial-gradient(58% 42% at 10% 0%, var(--alpha-blue-08), transparent 72%),
+      linear-gradient(135deg, var(--alpha-navy-64) 0%, var(--role-surface-primary) 58%);
+  }
+
+  &__form {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    min-inline-size: 0;
+    max-block-size: var(--request-modal-max-block-size);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-inline-size: 0;
+    padding-block: fluid(20, 16) var(--space-3);
+    padding-inline: fluid(28, 20);
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: 0;
+    color: var(--role-text-primary);
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-h5);
+    line-height: var(--line-height-h5);
+  }
+
+  &__brand img {
+    display: block;
+    flex: 0 0 auto;
+    inline-size: 32px;
+    block-size: 32px;
+  }
+
+  &__close.modal__close {
+    position: static;
+    inset: auto;
+    flex: 0 0 auto;
+    margin-inline-start: var(--space-4);
+  }
+
+  &__body {
+    display: grid;
+    overflow: hidden auto;
+    gap: fluid(20, 16);
+    min-inline-size: 0;
+    min-block-size: 0;
+    padding-block: var(--space-3) fluid(22, 18);
+    padding-inline: fluid(28, 20);
+    overscroll-behavior: contain;
+    scrollbar-color: var(--alpha-blue-24) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+  }
+
+  &__intro {
+    display: grid;
+    gap: var(--space-2);
+    max-inline-size: 620px;
+  }
+
+  &__title {
+    font-size: fluid-type('h2');
+    line-height: var(--line-height-h2);
+  }
+
+  &__lead {
+    max-inline-size: 620px;
+    margin: 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+  }
+
+  &__success {
+    overflow: hidden auto;
+    min-inline-size: 0;
+    min-block-size: 0;
+    padding-block: var(--space-3) fluid(22, 18);
+    padding-inline: fluid(28, 20);
+    overscroll-behavior: contain;
+    scrollbar-color: var(--alpha-blue-24) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__success-card {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-5);
+    min-inline-size: 0;
+
+    @include content-shell(fluid(28, 20));
+  }
+
+  &__success-icon {
+    color: var(--role-brand-hover);
+  }
+
+  &__success-content {
+    display: grid;
+    gap: var(--space-2);
+    min-inline-size: 0;
+  }
+
+  &__success-title {
+    font-size: fluid-type('h2');
+    line-height: var(--line-height-h2);
+    text-wrap: balance;
+    hyphens: auto;
+    overflow-wrap: break-word;
+
+    @include focus-visible(var(--role-accent-focus), var(--role-surface-primary), 1px, 3px);
+  }
+
+  &__success-text {
+    margin: 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    overflow-wrap: break-word;
+  }
+
+  &__success-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    min-inline-size: 0;
+  }
+
+  &__footer {
+    padding-block: fluid(18, 16) fluid(24, 20);
+    padding-inline: fluid(28, 20);
+    background-color: var(--role-surface-primary);
+    border-block-start: 1px solid var(--alpha-blue-08);
+  }
+
+  // Success state (JS toggles `.is-success` + reveals `__success`): the form body
+  // and footer are swapped out so only the in-modal confirmation is shown.
+  &.is-success {
+    .request-modal__body,
+    .request-modal__footer {
+      display: none;
+    }
+  }
+
+  @include media-down(md) {
+    &__header,
+    &__body,
+    &__success,
+    &__footer {
+      padding-inline: var(--space-4);
+    }
+
+    &__header {
+      padding-block-start: var(--space-4);
+    }
+
+    &__brand {
+      font-size: var(--font-size-body);
+      line-height: var(--line-height-body);
+    }
+
+    &__brand img {
+      inline-size: 28px;
+      block-size: 28px;
+    }
+
+    &__title {
+      font-size: var(--font-size-h2);
+      line-height: var(--line-height-h2);
+    }
+
+    &__footer {
+      border-block-start: 0;
+    }
+
+    &__success-card {
+      padding: var(--space-5);
+    }
+
+    &__success-actions {
+      flex-direction: column;
+      inline-size: 100%;
+
+      .button {
+        inline-size: 100%;
+        min-inline-size: 0;
+      }
+    }
+  }
+}

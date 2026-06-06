@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use '../settings' as *;
+
+@function resolve-breakpoint($breakpoint, $mixin-name) {
+  @if meta.type-of($breakpoint) == 'number' {
+    @return $breakpoint;
+  }
+
+  $value: map.get($breakpoints, $breakpoint);
+
+  @if not $value {
+    @error '#{$mixin-name}(): unknown breakpoint `#{$breakpoint}`.';
+  }
+
+  @return $value;
+}
+
+@mixin media-down($breakpoint) {
+  $value: resolve-breakpoint($breakpoint, 'media-down');
+
+  @media (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin media-up($breakpoint) {
+  $value: resolve-breakpoint($breakpoint, 'media-up');
+
+  @media (min-width: ($value + 1px)) {
+    @content;
+  }
+}
+
+@mixin media-between($from, $to) {
+  $from-value: resolve-breakpoint($from, 'media-between');
+  $to-value: resolve-breakpoint($to, 'media-between');
+
+  @if $from-value >= $to-value {
+    @error 'media-between(): `#{$from}` must be smaller than `#{$to}`.';
+  }
+
+  @media (min-width: ($from-value + 1px)) and (max-width: $to-value) {
+    @content;
+  }
+}
+
+@mixin hover($useActiveOnTouch: true) {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @if $useActiveOnTouch {
+    @media (any-hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+# dependencies
+node_modules/
+
+# local env
+.env
+.env.local
+.env.*.local
+
+# lock files (allow user's choice)
+pnpm-lock.yaml
+yarn.lock
+
+# build output
+dist/
+/public/
+
+# build caches
+.cache/
+
+# generated reports / temporary artifacts
+reports/
+tmp/
+
+# IDE
+.idea/
+.vscode/
+.claude/
+.codex/
+.cursor/
+.windsurf/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# misc
+*.map

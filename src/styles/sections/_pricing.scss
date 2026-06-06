@@ -1,0 +1,199 @@
+@use '../helpers' as *;
+
+.pricing {
+  padding-block: fluid(48, 32);
+  background-color: var(--role-surface-primary);
+
+  &__header {
+    max-inline-size: 760px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+    margin: fluid(36, 24) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    min-inline-size: 0;
+  }
+
+  &__card {
+    block-size: 100%;
+    min-block-size: 100%;
+    padding: var(--space-5);
+    border-color: var(--alpha-blue-16);
+
+    --card-background:
+      radial-gradient(86% 70% at 16% 0%, var(--alpha-blue-08), transparent 72%),
+      linear-gradient(160deg, var(--alpha-blue-08) 0%, var(--alpha-navy-24) 46%, var(--alpha-navy-36) 100%);
+    --card-shadow: var(--shadow-soft);
+  }
+
+  &__card--featured {
+    border-color: var(--role-brand-primary);
+
+    --card-background:
+      radial-gradient(94% 74% at 18% 0%, var(--alpha-blue-24), transparent 72%),
+      linear-gradient(160deg, var(--alpha-blue-16) 0%, var(--alpha-navy-24) 44%, var(--alpha-navy-36) 100%);
+    --card-shadow: var(--shadow-glow-blue);
+  }
+
+  &__card-header.card__header {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+    gap: var(--space-3);
+  }
+
+  &__card-heading {
+    display: grid;
+    gap: var(--space-1);
+    min-inline-size: 0;
+  }
+
+  &__card-icon {
+    --icon-box-size: 56px;
+    --icon-box-icon-size: 28px;
+    --icon-box-color: var(--role-brand-hover);
+  }
+
+  &__card-title {
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+  }
+
+  &__card-text {
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+  }
+
+  &__badge {
+    place-self: start end;
+    min-inline-size: max-content;
+    white-space: nowrap;
+  }
+
+  &__features {
+    margin-block-start: var(--space-5);
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin: var(--space-5) 0 0;
+    color: var(--role-text-primary);
+  }
+
+  &__price-value,
+  &__price--custom {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-h3);
+    line-height: var(--line-height-h3);
+  }
+
+  &__price-period {
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+  }
+
+  &__actions.card__actions {
+    margin-block-start: var(--space-5);
+    padding-block-start: 0;
+  }
+
+  &__button {
+    inline-size: 100%;
+  }
+
+  @include media-down(lg) {
+    &__list {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-3);
+      max-inline-size: 680px;
+      margin-inline: auto;
+    }
+  }
+
+  @include media-down(md) {
+    padding-block: fluid(42, 30);
+
+    &__list {
+      max-inline-size: 660px;
+      margin-inline: auto;
+    }
+
+    &__card {
+      padding: var(--space-4);
+    }
+
+    &__card--featured {
+      --card-shadow: var(--shadow-card);
+    }
+
+    &__features,
+    &__price,
+    &__actions.card__actions {
+      margin-block-start: var(--space-4);
+    }
+  }
+
+  @include media-down(sm) {
+    &__list {
+      max-inline-size: none;
+    }
+
+    &__card--featured {
+      --card-shadow: var(--shadow-soft);
+    }
+
+    &__card-header.card__header {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-1) var(--space-3);
+    }
+
+    &__card--featured &__card-icon {
+      grid-row: 1 / span 2;
+    }
+
+    &__badge {
+      grid-column: 2;
+      place-self: start;
+      margin-block-start: 0;
+    }
+
+    &__features,
+    &__price,
+    &__actions.card__actions {
+      margin-block-start: var(--space-3);
+    }
+
+    &__card--featured &__features {
+      margin-block-start: var(--space-4);
+    }
+
+    &__features {
+      gap: var(--space-1);
+    }
+  }
+
+  @include media-down(xs) {
+    &__card {
+      padding: var(--space-3);
+    }
+
+    &__price {
+      flex-wrap: wrap;
+    }
+
+    &__card-icon {
+      --icon-box-size: 48px;
+      --icon-box-icon-size: 24px;
+    }
+  }
+}

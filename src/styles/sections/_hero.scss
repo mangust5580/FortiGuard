@@ -1,0 +1,205 @@
+@use '../helpers' as *;
+
+.hero {
+  padding-block: fluid(64, 36) fluid(24, 18);
+  background:
+    radial-gradient(86% 70% at 80% 10%, var(--alpha-blue-24), transparent 72%),
+    var(--role-surface-primary);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+    align-items: center;
+    gap: fluid(38, 20);
+  }
+
+  &__content {
+    min-inline-size: 0;
+    max-inline-size: 560px;
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--role-text-primary);
+    font-size: fluid-type('h1');
+    font-weight: var(--font-weight-h1);
+    line-height: var(--line-height-h1);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  &__title-accent {
+    color: var(--role-brand-hover);
+  }
+
+  &__text {
+    max-inline-size: 560px;
+    margin: var(--space-5) 0 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-start: var(--space-6);
+  }
+
+  &__visual {
+    position: relative;
+    place-self: center end;
+    inline-size: min(100%, 980px);
+    min-inline-size: 0;
+    max-inline-size: 980px;
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset-block: 6% 10%;
+      inset-inline: 4% -2%;
+      z-index: -1;
+      opacity: 72%;
+      background: radial-gradient(68% 66% at 52% 52%, var(--alpha-blue-36), transparent 76%);
+      pointer-events: none;
+    }
+  }
+
+  &__picture {
+    position: relative;
+    z-index: 1;
+    display: block;
+    inline-size: 100%;
+  }
+
+  &__image {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: contain;
+  }
+
+  &__advantages {
+    display: block;
+    margin-block-start: fluid(34, 22);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--alpha-blue-16);
+    border-radius: var(--radius-md);
+    background:
+      linear-gradient(98deg, var(--alpha-blue-08) 0%, var(--alpha-navy-24) 44%, var(--alpha-navy-36) 100%);
+  }
+
+  &__advantages-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-3) var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__advantage {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    min-inline-size: 0;
+    padding: var(--space-1) 0;
+  }
+
+  &__advantage-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    inline-size: 44px;
+    block-size: 44px;
+    border: 1px solid var(--alpha-blue-08);
+    border-radius: var(--radius-full);
+    background-color: var(--alpha-navy-16);
+    color: var(--role-brand-hover);
+  }
+
+  &__advantage-content {
+    min-inline-size: 0;
+  }
+
+  &__advantage-value {
+    display: block;
+    color: var(--role-brand-hover);
+    font-size: var(--font-size-body-lg);
+    font-weight: var(--font-weight-body-strong);
+    line-height: var(--line-height-body-lg);
+  }
+
+  &__advantage-text {
+    display: block;
+    margin-block-start: var(--space-1);
+    color: var(--role-text-inverse-muted);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+  }
+
+  @include media-down(lg) {
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    &__content {
+      inline-size: min(100%, 680px);
+      max-inline-size: 680px;
+      margin-inline: auto;
+    }
+
+    &__visual {
+      order: 2;
+      justify-self: center;
+      inline-size: min(100%, 760px);
+      max-inline-size: 760px;
+    }
+
+    &__advantages {
+      inline-size: min(100%, 920px);
+      margin-inline: auto;
+      padding: var(--space-4);
+    }
+
+    &__advantages-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3) var(--space-4);
+    }
+
+    &__advantage {
+      padding: 0;
+    }
+  }
+
+  @include media-down(md) {
+    &__content {
+      inline-size: 100%;
+      max-inline-size: 100%;
+    }
+
+    &__advantage {
+      padding-inline: 0;
+    }
+  }
+
+  @include media-down(sm) {
+    &__actions {
+      inline-size: 100%;
+    }
+
+    &__actions .button {
+      inline-size: 100%;
+      min-inline-size: 0;
+    }
+
+    &__advantages-list {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+  }
+}

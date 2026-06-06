@@ -1,0 +1,178 @@
+@use '../helpers' as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-index-modal);
+  display: grid;
+  visibility: hidden;
+  opacity: 0%;
+  place-items: center;
+  padding: fluid(32, 16);
+  pointer-events: none;
+
+  @include transition((opacity, visibility));
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-open,
+  &.is-closing {
+    visibility: visible;
+    opacity: 100%;
+    pointer-events: auto;
+  }
+
+  &.is-closing {
+    opacity: 0%;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--role-overlay-medium);
+
+    &[data-js-modal-close] {
+      cursor: pointer;
+    }
+  }
+
+  &__dialog {
+    position: relative;
+    z-index: var(--z-index-content);
+    overflow: auto;
+    inline-size: min(100%, 1040px);
+    max-block-size: calc(100dvh - #{fluid(32, 16)});
+    border: 1px solid var(--role-border-default);
+    border-radius: var(--radius-lg);
+    background-color: var(--role-surface-card);
+    box-shadow: var(--shadow-card);
+    color: var(--role-text-primary);
+    cursor: default;
+    transform: translateY(0);
+
+    @include transition((transform, opacity, border-color, box-shadow));
+
+    .modal.is-closing & {
+      opacity: 0%;
+      transform: translateY(8px);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    inset-block-start: var(--space-4);
+    inset-inline-end: var(--space-4);
+    z-index: var(--z-index-content);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 40px;
+    block-size: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    color: var(--role-text-muted);
+    font-size: var(--font-size-h5);
+    line-height: 1;
+    cursor: pointer;
+
+    @include transition((color, background-color, box-shadow));
+    @include focus-visible(var(--role-accent-focus), var(--role-surface-card), 1px, 3px);
+
+    @include hover {
+      background-color: var(--role-hover-overlay);
+      color: var(--role-text-primary);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--role-text-primary);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-h3);
+    line-height: var(--line-height-h3);
+  }
+
+  &--request {
+    padding: var(--space-3);
+
+    .modal__overlay {
+      background:
+        linear-gradient(0deg, var(--role-overlay-strong), var(--role-overlay-strong)),
+        radial-gradient(120% 120% at 50% 0%, var(--alpha-blue-16), transparent 56%);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal__dialog {
+      --request-modal-max-block-size: calc(100dvh - 24px);
+
+      overflow: hidden;
+      inline-size: min(calc(100vw - 48px), 820px);
+      max-inline-size: 100%;
+      max-block-size: var(--request-modal-max-block-size);
+      border-color: var(--alpha-blue-24);
+      box-shadow:
+        inset 0 0 0 1px var(--alpha-blue-08),
+        var(--shadow-raised);
+      overscroll-behavior: contain;
+    }
+
+    .modal__close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 42px;
+      block-size: 42px;
+      padding: 0;
+      border: 1px solid var(--alpha-blue-16);
+      border-radius: var(--radius-sm);
+      background-color: var(--alpha-navy-24);
+      color: var(--role-text-secondary);
+
+      @include hover {
+        border-color: var(--alpha-blue-36);
+        background-color: var(--alpha-blue-16);
+        color: var(--role-text-primary);
+      }
+
+      &:focus-visible {
+        border-color: var(--alpha-blue-36);
+      }
+    }
+
+    .modal__close-icon {
+      display: block;
+      inline-size: 20px;
+      block-size: 20px;
+      fill: none;
+      stroke: currentcolor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+    }
+
+    @include media-down(md) {
+      padding: var(--space-2);
+
+      .modal__dialog {
+        --request-modal-max-block-size: calc(100dvh - 16px);
+
+        inline-size: min(calc(100vw - 16px), 100%);
+        max-block-size: var(--request-modal-max-block-size);
+      }
+
+      .modal__close {
+        inline-size: 38px;
+        block-size: 38px;
+      }
+
+      .modal__close-icon {
+        inline-size: 18px;
+        block-size: 18px;
+      }
+    }
+  }
+}

@@ -1,0 +1,265 @@
+<section class="article-content" aria-label="Содержание статьи">
+  <div class="container">
+    <div class="article-content__inner">
+      <article class="article-content__article" aria-labelledby="article-hero-title">
+        <div class="article-content__prose">
+          <p class="article-content__intro">
+            Киберугрозы меняются быстрее, чем процессы внутри компании. Поэтому оценка
+            безопасности должна быть не разовым отчётом для руководства, а регулярной
+            практикой: инвентаризацией активов, проверкой доступов, контролем мониторинга
+            и планом действий после обнаружения рисков.
+          </p>
+
+          <aside class="article-content__callout card card--feature" aria-label="Ключевая мысль">
+            <svg class="icon icon--lg article-content__callout-icon" aria-hidden="true" focusable="false">
+              <use href="icons/sprite.svg#icon-security-shield-check"></use>
+            </svg>
+            <p class="article-content__callout-text">
+              Без регулярной оценки безопасности бизнес не видит реальные риски и тратит
+              ресурсы не на защиту, а на реакцию после инцидента.
+            </p>
+          </aside>
+
+          <section class="article-content__section" id="article-assets" aria-labelledby="article-assets-title">
+            <h2 class="article-content__title" id="article-assets-title">Инвентаризация активов</h2>
+            <p>
+              Оценка начинается с понимания того, что именно нужно защищать. В список
+              активов должны попасть не только серверы и рабочие станции, но и облачные
+              окружения, SaaS-сервисы, API, базы данных, резервные копии и учётные записи
+              с повышенными правами.
+            </p>
+            <ul class="article-content__list">
+              <li class="article-content__item">Соберите карту критичных систем и владельцев каждого актива.</li>
+              <li class="article-content__item">Отметьте данные, которые требуют особой защиты: персональные, финансовые и коммерческие.</li>
+              <li class="article-content__item">Проверьте, какие активы доступны извне и какие сервисы завязаны на подрядчиков.</li>
+            </ul>
+          </section>
+
+          <section class="article-content__section" id="article-access" aria-labelledby="article-access-title">
+            <h2 class="article-content__title" id="article-access-title">Проверка доступа и ролей</h2>
+            <p>
+              После инвентаризации важно понять, кто имеет доступ к критичным системам и
+              насколько эти права соответствуют реальным обязанностям. Избыточные роли,
+              забытые учётные записи и отсутствие MFA часто становятся самым коротким путём
+              к компрометации.
+            </p>
+            <ul class="article-content__list">
+              <li class="article-content__item">Сверьте роли сотрудников с принципом минимально необходимых прав.</li>
+              <li class="article-content__item">Выявите неактивные аккаунты, общие пароли и временные доступы без даты окончания.</li>
+              <li class="article-content__item">Проверьте MFA для администраторов, удалённого доступа, почты и облачных консолей.</li>
+            </ul>
+          </section>
+
+          <section class="article-content__section" id="article-monitoring" aria-labelledby="article-monitoring-title">
+            <h2 class="article-content__title" id="article-monitoring-title">Мониторинг угроз</h2>
+            <p>
+              Даже сильная превентивная защита не отменяет необходимость видеть события в
+              инфраструктуре. Мониторинг должен показывать подозрительные входы, изменения
+              конфигураций, аномальную сетевую активность и попытки обращения к критичным
+              данным.
+            </p>
+            <ul class="article-content__list">
+              <li class="article-content__item">Убедитесь, что логи собираются из endpoint, сетевых устройств, облака и бизнес-критичных приложений.</li>
+              <li class="article-content__item">Настройте приоритеты алертов, чтобы команда не терялась в шуме низкого риска.</li>
+              <li class="article-content__item">Проверяйте сценарии обнаружения на реальных техниках атак, а не только на формальных правилах.</li>
+            </ul>
+
+            <div class="article-content__risk-panel card card--feature" aria-labelledby="article-risk-title">
+              <div class="article-content__risk-header">
+                <h3 class="article-content__subtitle" id="article-risk-title">Обзор уязвимостей</h3>
+                <p class="article-content__risk-note">HTML/CSS-панель для будущей вёрстки аналитики, без растровой картинки.</p>
+              </div>
+
+              <ul class="article-content__metrics" aria-label="Сводка по уязвимостям">
+                <li class="article-content__metric">
+                  <span class="article-content__metric-label">Всего уязвимостей</span>
+                  <strong class="article-content__metric-value">1 243</strong>
+                  <span class="article-content__metric-trend article-content__metric-trend--up">+12%</span>
+                </li>
+                <li class="article-content__metric">
+                  <span class="article-content__metric-label">Критичные</span>
+                  <strong class="article-content__metric-value">32</strong>
+                  <span class="article-content__metric-trend article-content__metric-trend--down">-8%</span>
+                </li>
+                <li class="article-content__metric">
+                  <span class="article-content__metric-label">Высокие</span>
+                  <strong class="article-content__metric-value">189</strong>
+                  <span class="article-content__metric-trend article-content__metric-trend--down">-5%</span>
+                </li>
+                <li class="article-content__metric">
+                  <span class="article-content__metric-label">Средний риск</span>
+                  <strong class="article-content__metric-value">456</strong>
+                  <span class="article-content__metric-trend article-content__metric-trend--down">-3%</span>
+                </li>
+              </ul>
+
+              <div class="article-content__risk-grid">
+                <div class="article-content__chart" aria-label="Динамика выявленных уязвимостей">
+                  <p class="article-content__chart-title">Динамика выявленных уязвимостей</p>
+                  <svg class="article-content__chart-graphic" viewBox="0 0 320 136" role="img" aria-label="Тренд критичных, высоких и средних уязвимостей">
+                    <polyline class="article-content__chart-line article-content__chart-line--critical" points="0,92 40,88 80,96 120,82 160,90 200,76 240,84 280,70 320,78"></polyline>
+                    <polyline class="article-content__chart-line article-content__chart-line--high" points="0,74 40,68 80,72 120,62 160,66 200,58 240,64 280,54 320,58"></polyline>
+                    <polyline class="article-content__chart-line article-content__chart-line--medium" points="0,50 40,56 80,46 120,54 160,40 200,48 240,36 280,42 320,30"></polyline>
+                  </svg>
+                </div>
+
+                <div class="article-content__top-risks">
+                  <p class="article-content__chart-title">Топ уязвимостей</p>
+                  <ul class="article-content__risk-list">
+                    <li class="article-content__risk-item">
+                      <span>CVE-2024-2294</span>
+                      <strong>Критическая</strong>
+                    </li>
+                    <li class="article-content__risk-item">
+                      <span>CVE-2024-3173</span>
+                      <strong>Высокая</strong>
+                    </li>
+                    <li class="article-content__risk-item">
+                      <span>CVE-2024-1684</span>
+                      <strong>Высокая</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="article-content__section" id="article-incidents" aria-labelledby="article-incidents-title">
+            <h2 class="article-content__title" id="article-incidents-title">Готовность к инцидентам</h2>
+            <p>
+              План реагирования должен быть проверен до инцидента. Команда должна понимать,
+              кто принимает решения, как изолировать затронутые системы, где лежат резервные
+              копии и какие уведомления нужно отправить внутри компании и внешним сторонам.
+            </p>
+            <ul class="article-content__list">
+              <li class="article-content__item">Опишите роли: владелец инцидента, техническая команда, коммуникации, юридический блок.</li>
+              <li class="article-content__item">Проведите tabletop-учение по одному реалистичному сценарию атаки.</li>
+              <li class="article-content__item">Проверьте восстановление из резервных копий и время возврата критичных сервисов.</li>
+            </ul>
+          </section>
+
+          <section class="article-content__section" id="article-compliance" aria-labelledby="article-compliance-title">
+            <h2 class="article-content__title" id="article-compliance-title">Отчётность и соответствие требованиям</h2>
+            <p>
+              Оценка безопасности должна завершаться понятным отчётом: какие риски выявлены,
+              как они влияют на бизнес и какие меры дают максимальный эффект. Формальный список
+              нарушений без приоритетов не помогает команде двигаться быстрее.
+            </p>
+            <ul class="article-content__list">
+              <li class="article-content__item">Разделите находки по влиянию на бизнес, вероятности эксплуатации и сложности исправления.</li>
+              <li class="article-content__item">Свяжите меры защиты с требованиями регуляторов, договоров и внутренних политик.</li>
+              <li class="article-content__item">Назначьте владельцев задач, сроки и критерии проверки результата.</li>
+            </ul>
+          </section>
+
+          <section class="article-content__section" id="article-next" aria-labelledby="article-next-title">
+            <h2 class="article-content__title" id="article-next-title">Что делать после оценки</h2>
+            <p>
+              Главная ценность аудита появляется после отчёта. Команда должна превратить
+              выводы в дорожную карту: закрыть критичные риски, настроить контроль повторного
+              появления проблем и вернуться к оценке через согласованный интервал.
+            </p>
+            <ul class="article-content__list">
+              <li class="article-content__item">Закройте критичные уязвимости и доступы с повышенным риском в первую очередь.</li>
+              <li class="article-content__item">Включите ключевые проверки в регулярный мониторинг, а не оставляйте их ручными.</li>
+              <li class="article-content__item">Повторяйте оценку после крупных изменений инфраструктуры, релизов и инцидентов.</li>
+            </ul>
+          </section>
+
+          <section class="article-content__author card card--feature" aria-labelledby="article-author-title">
+            <span class="article-content__author-icon icon-box" aria-hidden="true">
+              <svg class="icon icon--lg icon-box__icon" aria-hidden="true" focusable="false">
+                <use href="icons/sprite.svg#icon-security-shield-check"></use>
+              </svg>
+            </span>
+            <div class="article-content__author-body">
+              <h2 class="article-content__author-title" id="article-author-title">Редакция FortiGuard</h2>
+              <p class="article-content__author-text">
+                Команда экспертов по кибербезопасности. Пишем о защите бизнеса,
+                мониторинге угроз и практиках построения устойчивой инфраструктуры.
+              </p>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <aside class="article-content__sidebar" aria-label="Навигация и действия по статье">
+        <nav class="legal-toc article-content__toc" aria-label="Содержание" data-js-scrollspy>
+          <p class="legal-toc__heading">Содержание</p>
+          <ol class="legal-toc__list">
+            <li class="legal-toc__item is-active">
+              <a class="legal-toc__link" href="#article-assets">
+                <span class="legal-toc__number" aria-hidden="true">1</span>
+                <span class="legal-toc__text">Инвентаризация активов</span>
+              </a>
+            </li>
+            <li class="legal-toc__item">
+              <a class="legal-toc__link" href="#article-access">
+                <span class="legal-toc__number" aria-hidden="true">2</span>
+                <span class="legal-toc__text">Проверка доступа и ролей</span>
+              </a>
+            </li>
+            <li class="legal-toc__item">
+              <a class="legal-toc__link" href="#article-monitoring">
+                <span class="legal-toc__number" aria-hidden="true">3</span>
+                <span class="legal-toc__text">Мониторинг угроз</span>
+              </a>
+            </li>
+            <li class="legal-toc__item">
+              <a class="legal-toc__link" href="#article-incidents">
+                <span class="legal-toc__number" aria-hidden="true">4</span>
+                <span class="legal-toc__text">Готовность к инцидентам</span>
+              </a>
+            </li>
+            <li class="legal-toc__item">
+              <a class="legal-toc__link" href="#article-compliance">
+                <span class="legal-toc__number" aria-hidden="true">5</span>
+                <span class="legal-toc__text">Отчётность и требования</span>
+              </a>
+            </li>
+            <li class="legal-toc__item">
+              <a class="legal-toc__link" href="#article-next">
+                <span class="legal-toc__number" aria-hidden="true">6</span>
+                <span class="legal-toc__text">Что делать после оценки</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+
+        <aside class="article-content__sidebar-cta card card--feature" aria-labelledby="article-sidebar-cta-title">
+          <h2 class="article-content__sidebar-title" id="article-sidebar-cta-title">Нужен аудит безопасности?</h2>
+          <p class="article-content__sidebar-text">
+            Наши эксперты проведут комплексную оценку инфраструктуры, найдут слабые
+            места и предложат план улучшений.
+          </p>
+          <picture class="article-content__sidebar-picture" aria-hidden="true">
+            <source
+              srcset="images/articles/article-audit-cta.avif 1x, images/articles/article-audit-cta@2x.avif 2x"
+              type="image/avif"
+            >
+            <source
+              srcset="images/articles/article-audit-cta.webp 1x, images/articles/article-audit-cta@2x.webp 2x"
+              type="image/webp"
+            >
+            <source
+              srcset="images/articles/article-audit-cta.png 1x, images/articles/article-audit-cta@2x.png 2x"
+              type="image/png"
+            >
+            <img
+              class="article-content__sidebar-image"
+              src="images/articles/article-audit-cta.png"
+              alt=""
+              width="600"
+              height="338"
+              loading="lazy"
+              decoding="async"
+            >
+          </picture>
+          <a class="button button--primary button--sm article-content__sidebar-button" href="#consultation" data-js-modal-open="consultation">
+            <span class="button__text">Запросить консультацию</span>
+          </a>
+        </aside>
+      </aside>
+    </div>
+  </div>
+</section>

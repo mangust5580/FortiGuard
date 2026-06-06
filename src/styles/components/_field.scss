@@ -1,0 +1,158 @@
+@use '../helpers' as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  &__label {
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-label);
+    line-height: var(--line-height-small);
+    letter-spacing: var(--letter-spacing-normal);
+  }
+
+  &__control {
+    inline-size: 100%;
+    min-block-size: 48px;
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
+    border: 1px solid var(--role-border-default);
+    border-radius: var(--radius-sm);
+    background-color: var(--role-surface-base);
+    color: var(--role-text-primary);
+    caret-color: var(--role-accent-brand);
+
+    @include transition((border-color, background-color, box-shadow, color));
+
+    &::placeholder {
+      opacity: 100%;
+      color: var(--role-text-muted);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      box-shadow: none;
+    }
+
+    &:is(select) {
+      cursor: pointer;
+
+      option {
+        background-color: var(--role-surface-elevated);
+        color: var(--role-text-primary);
+      }
+    }
+
+    &:not(:disabled, [aria-disabled='true']) {
+      @include hover {
+        border-color: var(--role-border-subtle);
+      }
+    }
+
+    &:not(:disabled, [aria-disabled='true']):focus {
+      border-color: var(--role-brand-hover);
+    }
+
+    :root.is-keyboard-navigation &:not(:disabled, [aria-disabled='true']):focus {
+      @include ring-shadow(var(--role-accent-focus), var(--role-surface-page), 1px, 4px);
+    }
+
+    &:disabled,
+    &[aria-disabled='true'] {
+      border-color: var(--role-border-divider);
+      background-color: var(--role-disabled-bg);
+      box-shadow: none;
+      color: var(--role-text-muted);
+      cursor: not-allowed;
+    }
+
+    &:is(:disabled, [aria-disabled='true']):is(:focus, :focus-visible) {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &--textarea {
+      min-block-size: 160px;
+      padding-block: var(--space-4);
+      resize: none;
+    }
+  }
+
+  @include media-down(md) {
+    &__control--textarea {
+      min-block-size: 180px;
+    }
+  }
+
+  &__message {
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+  }
+
+  &--error {
+    .field__control:not(:disabled, [aria-disabled='true']) {
+      border-color: var(--role-accent-danger);
+
+      @include ring-shadow(var(--role-accent-danger), var(--role-surface-page), 1px, 4px);
+    }
+
+    .field__control:not(:disabled, [aria-disabled='true']):focus-visible {
+      @include ring-shadow(var(--role-accent-danger), var(--role-surface-page), 1px, 4px);
+    }
+
+    .field__message {
+      color: var(--role-accent-danger);
+    }
+
+    .field__control:disabled ~ .field__message,
+    .field__control[aria-disabled='true'] ~ .field__message {
+      color: var(--role-text-muted);
+    }
+  }
+
+  &:not(.field--disabled) &__control[aria-invalid='true']:not(:disabled, [aria-disabled='true']) {
+    border-color: var(--role-accent-danger);
+
+    @include ring-shadow(var(--role-accent-danger), var(--role-surface-page), 1px, 4px);
+  }
+
+  &:not(.field--disabled) &__control[aria-invalid='true']:not(:disabled, [aria-disabled='true']):focus-visible {
+    @include ring-shadow(var(--role-accent-danger), var(--role-surface-page), 1px, 4px);
+  }
+
+  &:not(.field--disabled) &__control[aria-invalid='true']:not(:disabled, [aria-disabled='true']) ~ &__message {
+    color: var(--role-accent-danger);
+  }
+
+  &--disabled {
+    .field__label,
+    .field__message {
+      color: var(--role-text-muted);
+    }
+
+    .field__control {
+      border-color: var(--role-border-divider);
+      background-color: var(--role-disabled-bg);
+      box-shadow: none;
+      color: var(--role-text-muted);
+      cursor: not-allowed;
+    }
+  }
+
+  &--disabled.field--error {
+    .field__message {
+      color: var(--role-text-muted);
+    }
+  }
+
+  &__control[aria-invalid='true']:disabled ~ &__message,
+  &__control[aria-invalid='true'][aria-disabled='true'] ~ &__message {
+    color: var(--role-text-muted);
+  }
+}

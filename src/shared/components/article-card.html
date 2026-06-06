@@ -1,0 +1,43 @@
+<article class="articles__card card card--article card--interactive">
+  <div class="articles__media card__media">
+    <picture class="articles__picture">
+      <source srcset="images/articles/{{ image }}.avif 1x, images/articles/{{ image }}@2x.avif 2x" type="image/avif">
+      <source srcset="images/articles/{{ image }}.webp 1x, images/articles/{{ image }}@2x.webp 2x" type="image/webp">
+      <source srcset="images/articles/{{ image }}.png 1x, images/articles/{{ image }}@2x.png 2x" type="image/png">
+      <img
+        class="articles__image card__image"
+        src="images/articles/{{ image }}.png"
+        alt="{{ imageAlt }}"
+        width="{{ imageWidth }}"
+        height="{{ imageHeight }}"
+        loading="{{ imageLoading }}"
+        decoding="async"
+      >
+    </picture>
+    <span class="articles__badge badge {{ badgeClass }}">{{ category }}</span>
+  </div>
+
+  <div class="articles__content card__content">
+    <h3 class="articles__card-title card__title">
+      <a class="articles__card-title-link" href="{{ href }}">{{ title }}</a>
+    </h3>
+    <p class="articles__text card__text">{{ excerpt }}</p>
+  </div>
+
+  <div class="articles__footer">
+    <div class="articles__meta" aria-label="Информация о статье">
+      <span class="articles__meta-item">
+        <svg class="icon icon--sm articles__meta-icon" aria-hidden="true" focusable="false">
+          <use href="icons/sprite.svg#icon-common-calendar"></use>
+        </svg>
+        <time datetime="{{ dateIso }}">{{ dateText }}</time>
+      </span>
+      <span class="articles__meta-item">
+        <svg class="icon icon--sm articles__meta-icon" aria-hidden="true" focusable="false">
+          <use href="icons/sprite.svg#icon-common-clock"></use>
+        </svg>
+        <span>{{ readingTime }}</span>
+      </span>
+    </div>
+  </div>
+</article>

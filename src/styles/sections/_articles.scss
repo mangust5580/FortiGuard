@@ -1,0 +1,169 @@
+@use '../helpers' as *;
+
+.articles {
+  padding-block: fluid(44, 30);
+  background-color: var(--role-surface-primary);
+
+  &__topline {
+    display: grid;
+    justify-items: stretch;
+    gap: var(--space-5);
+  }
+
+  &__heading.section-heading {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &__all-link {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: var(--space-2);
+    color: var(--role-accent-brand);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body-strong);
+    line-height: var(--line-height-body);
+    text-decoration: none;
+
+    @include transition((color, opacity));
+    @include focus-visible;
+
+    @include hover {
+      color: var(--role-brand-hover);
+    }
+  }
+
+  &__all-link-icon {
+    line-height: 1;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+    margin: fluid(36, 24) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    min-inline-size: 0;
+  }
+
+  &__card {
+    gap: var(--space-4);
+    block-size: 100%;
+  }
+
+  &__media {
+    border: 1px solid var(--alpha-blue-16);
+    background-color: var(--alpha-navy-24);
+  }
+
+  &__picture {
+    display: block;
+    block-size: 100%;
+  }
+
+  &__image {
+    opacity: 82%;
+    filter: saturate(0.95) contrast(1.08);
+
+    @include transition((opacity, transform, filter));
+  }
+
+  &__badge {
+    position: absolute;
+    inset-block-start: var(--space-3);
+    inset-inline-start: var(--space-3);
+  }
+
+  &__content {
+    gap: var(--space-2);
+  }
+
+  &__card-title-link {
+    color: inherit;
+    text-decoration: none;
+
+    @include focus-visible;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+  }
+
+  &__text {
+    color: var(--role-text-secondary);
+  }
+
+  &__footer {
+    margin-block-start: auto;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+  }
+
+  &__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    min-inline-size: 0;
+  }
+
+  &__meta-icon {
+    flex-shrink: 0;
+    color: var(--role-brand-hover);
+  }
+
+  &__card.card--interactive {
+    @include hover {
+      .articles__image {
+        opacity: 100%;
+        transform: scale(1.025);
+        filter: saturate(1) contrast(1.12);
+      }
+    }
+  }
+
+  @include media-down(lg) {
+    &__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @include media-down(md) {
+    &__all-link {
+      justify-self: center;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
+      max-inline-size: 720px;
+      margin-inline: auto;
+    }
+  }
+
+  @include media-down(xs) {
+    &__card {
+      gap: var(--space-3);
+      padding: var(--space-3);
+    }
+
+    &__badge {
+      inset-block-start: var(--space-2);
+      inset-inline-start: var(--space-2);
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@use '../functions' as *;
+
+@mixin grid-columns($count: 12, $gap: 30px) {
+  display: grid;
+  grid-template-columns: repeat($count, 1fr);
+  gap: $gap;
+}
+
+@mixin fluid-text($max: 48, $min: 16) {
+  font-size: fluid($max, $min);
+}
+
+@mixin fluid-text-between(
+  $max: 48,
+  $min: 16,
+  $from: mobile,
+  $to: desktop
+) {
+  font-size: fluid-between($max, $min, $from, $to);
+}
+
+@mixin fluid-text-to($max: 48, $min: 16, $to: desktop, $from: mobile) {
+  font-size: fluid-to($max, $min, $to, $from);
+}
+
+@mixin size($inline-size, $block-size: $inline-size) {
+  inline-size: $inline-size;
+  block-size: $block-size;
+}
+
+@mixin square($width, $height: $width) {
+  @include size($width, $height);
+}
+
+@mixin pseudo($inset: 0, $position: absolute, $content: '') {
+  content: $content;
+  position: $position;
+  inset: $inset;
+}
+
+@mixin absolute-center($x: true, $y: true) {
+  position: absolute;
+
+  @if $x and $y {
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $x {
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+  } @else if $y {
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin flex-center($is-inline: false) {
+  @if $is-inline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+}

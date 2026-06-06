@@ -1,0 +1,29 @@
+<section class="articles-page" aria-labelledby="articles-page-title">
+  <div class="container">
+    <h2 class="visually-hidden" id="articles-page-title">Все материалы</h2>
+
+    <scope with="articles.featuredCard">
+      <include src="shared/components/article-card-featured.html"></include>
+    </scope>
+
+    <ul class="articles__list articles-page__list">
+      <each loop="article in articles.gridCards">
+        <li class="articles__item">
+          <scope with="article">
+            <include src="shared/components/article-card.html"></include>
+          </scope>
+        </li>
+      </each>
+    </ul>
+
+    <nav class="articles-page__pagination" aria-label="Пагинация материалов">
+      <div class="pagination">
+        <span class="pagination__item pagination__item--prev is-disabled" aria-disabled="true" aria-label="Предыдущая страница">‹</span>
+        <a class="pagination__item is-active" href="articles.html" aria-current="page">1</a>
+        <a class="pagination__item" href="articles.html">2</a>
+        <a class="pagination__item" href="articles.html">3</a>
+        <a class="pagination__item pagination__item--next" href="articles.html" aria-label="Следующая страница">›</a>
+      </div>
+    </nav>
+  </div>
+</section>

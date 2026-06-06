@@ -1,0 +1,56 @@
+@use '../helpers' as *;
+@use 'tokens' as tokens;
+
+:root {
+  @include emit-vars('color', tokens.$colors);
+  @include emit-vars('alpha', tokens.$alpha-colors);
+  @include emit-vars('role', tokens.$role-colors);
+  @include emit-vars('gradient', tokens.$gradients);
+  @include emit-vars('font-family', tokens.$font-families);
+  @include emit-vars('font-size', tokens.$font-sizes);
+  @include emit-vars('line-height', tokens.$line-heights);
+  @include emit-vars('font-weight', tokens.$font-weights);
+  @include emit-vars('letter-spacing', tokens.$letter-spacings);
+  @include emit-vars('space', tokens.$spaces);
+  @include emit-vars('shadow', tokens.$shadows);
+  @include emit-vars('radius', tokens.$radii);
+  @include emit-vars('layout', tokens.$layout);
+  @include emit-vars('z-index', tokens.$z-indexes);
+  @include emit-vars('duration', tokens.$durations);
+  @include emit-vars('easing', tokens.$easings);
+
+
+  --space-xs: var(--space-2);
+  --space-sm: var(--space-3);
+  --space-md: var(--space-4);
+  --space-lg: var(--space-6);
+  --space-xl: var(--space-8);
+  --space-2xl: var(--space-12);
+  --space-3xl: var(--space-16);
+  --space-4xl: var(--space-20);
+  --radius-xs: var(--radius-4);
+  --radius-sm: var(--radius-8);
+  --radius-md: var(--radius-12);
+  --radius-lg: var(--radius-16);
+  --radius-xl: var(--radius-20);
+  --radius-2xl: var(--radius-24);
+  --radius-full: var(--radius-999);
+  --shadow-focus: var(--shadow-focus-ring);
+  --role-surface-page: var(--role-surface-primary);
+  --role-surface-base: var(--role-surface-elevated);
+  --role-surface-card: var(--role-surface-raised);
+  --role-surface-soft: var(--role-surface-subtle);
+  --role-border-base: var(--role-border-default);
+  --role-accent-brand: var(--role-brand-primary);
+  --role-accent-focus: var(--role-focus-ring);
+}
+
+@include media-down(md) {
+  :root {
+    @include emit-vars('font-size', tokens.$mobile-font-sizes);
+    @include emit-vars('line-height', tokens.$mobile-line-heights);
+
+    --layout-container-inline: var(--layout-container-inline-mobile);
+    --layout-section-y: var(--layout-section-y-mobile);
+  }
+}

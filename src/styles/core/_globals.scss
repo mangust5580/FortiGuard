@@ -1,0 +1,125 @@
+@use '../helpers' as *;
+
+html {
+  min-block-size: 100%;
+  background-color: var(--role-surface-page);
+  color: var(--role-text-primary);
+  font-family: var(--font-family-base);
+  font-size: 100%;
+  accent-color: var(--role-accent-brand);
+  color-scheme: dark;
+  scroll-padding-block-start: calc(var(--layout-header-height, 73px) + var(--space-6));
+  scrollbar-color: var(--role-border-default) var(--role-surface-page);
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  min-block-size: 100vh;
+  background:
+    var(--gradient-page),
+    var(--role-surface-page);
+  color: var(--role-text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-normal);
+  text-rendering: optimizelegibility;
+}
+
+main {
+  outline: none;
+}
+
+main > section[id] {
+  scroll-margin-block-start: calc(var(--layout-header-height, 73px) + var(--space-6));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  @include transition-color;
+  @include focus-visible;
+}
+
+button,
+input,
+textarea,
+select {
+  color: inherit;
+  font: inherit;
+}
+
+button,
+[type='button'],
+[type='submit'],
+[type='reset'] {
+  cursor: pointer;
+
+  @include transition-base;
+  @include focus-visible;
+}
+
+button:disabled,
+[type='button']:disabled,
+[type='submit']:disabled,
+[type='reset']:disabled,
+[aria-disabled='true'] {
+  opacity: 56%;
+  cursor: not-allowed;
+}
+
+input,
+textarea,
+select {
+  inline-size: 100%;
+  border: 1px solid var(--role-border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--role-surface-base);
+  color: var(--role-text-primary);
+  caret-color: var(--role-accent-brand);
+
+  @include transition((border-color, background-color, box-shadow));
+  @include focus-visible;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 100%;
+  color: var(--role-text-muted);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  border-color: var(--role-border-divider);
+  background-color: var(--role-disabled-bg);
+  color: var(--role-text-muted);
+  cursor: not-allowed;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+img {
+  block-size: auto;
+}
+
+hr {
+  border: 0;
+  border-block-start: 1px solid var(--role-border-divider);
+}
+
+::selection {
+  background-color: var(--alpha-blue-36);
+  color: var(--role-text-primary);
+}
+
+@include media-down(md) {
+  html {
+    scroll-padding-block-start: calc(var(--layout-header-height, 73px) + var(--space-6));
+  }
+}

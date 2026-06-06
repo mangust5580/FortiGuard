@@ -1,0 +1,52 @@
+@use '../helpers' as *;
+
+.faq {
+  padding-block: fluid(120, 64);
+  background-color: var(--role-surface-primary);
+
+  &__header {
+    margin-block-end: fluid(48, 32);
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: fluid(48, 32);
+  }
+
+  &__visual-card {
+    overflow: hidden;
+    min-inline-size: 0;
+  }
+
+  &__picture {
+    display: block;
+    inline-size: 100%;
+  }
+
+  &__illustration-image {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: contain;
+  }
+
+  @include media-down(lg) {
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    &__visual {
+      max-inline-size: 560px;
+      margin-inline: auto;
+    }
+  }
+
+  @include media-down(md) {
+    &__visual {
+      max-inline-size: 100%;
+    }
+  }
+}

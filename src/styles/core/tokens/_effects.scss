@@ -1,0 +1,10 @@
+$shadows: (
+  'none': 0 0 0 transparent,
+  'soft': 0 1px 2px 0 rgb(0 0 0 / 20%),
+  'card': 0 4px 8px -2px rgb(0 0 0 / 30%),
+  'raised': 0 8px 16px -4px rgb(0 0 0 / 30%),
+  'modal': 0 16px 24px -8px rgb(0 0 0 / 40%),
+  'glow-blue': '0 0 10px rgb(22 100 230 / 40%), 0 0 20px rgb(22 100 230 / 40%)',
+  'focus-ring': '0 0 0 2px #1664e6, 0 0 0 8px rgb(22 100 230 / 20%)',
+  'strong': 0 16px 32px -8px rgb(0 0 0 / 45%),
+);

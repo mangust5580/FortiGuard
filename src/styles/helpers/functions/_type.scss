@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'fluid' as *;
+
+// Type scale lives in the token layer; this helper reads it as data so fluid
+// headings stay tied to a single source of truth instead of magic numbers.
+@use '../../core/tokens/typography' as type;
+
+// Fluid font-size driven by the type scale: clamps between the token's mobile
+// size and its desktop size across the mobile→desktop viewport range.
+
+@function fluid-type($key, $from: mobile, $to: desktop) {
+  $max: map.get(type.$font-sizes, $key);
+  $min: map.get(type.$mobile-font-sizes, $key);
+
+  @if not $max or not $min {
+    @error 'fluid-type(): unknown type scale key `#{$key}`.';
+  }
+
+  @return fluid-between(math.div($max, 1px), math.div($min, 1px), $from, $to);
+}

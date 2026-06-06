@@ -1,0 +1,223 @@
+@use '../helpers' as *;
+
+.error-hero {
+  @include page-hero($content-max: 560px, $visual-max: 600px, $visual-max-mobile: 520px);
+
+  &__title {
+    margin: 0;
+  }
+
+  &__code {
+    display: block;
+    color: var(--role-text-primary);
+    font-size: fluid-type('display-xl');
+    font-weight: var(--font-weight-display-xl);
+    line-height: 1;
+    letter-spacing: var(--letter-spacing-tight);
+  }
+
+  &__headline {
+    display: block;
+    margin-block-start: var(--space-3);
+    color: var(--role-text-primary);
+    font-size: fluid-type('h2');
+    font-weight: var(--font-weight-h2);
+    line-height: var(--line-height-h2);
+    text-wrap: balance;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  &__text {
+    max-inline-size: 460px;
+    margin: var(--space-5) 0 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-start: var(--space-6);
+  }
+
+  // Centered single-column layout below `lg`; base order/visual sizing
+  // come from the shared `page-hero` skeleton.
+  @include media-down(lg) {
+    &__content {
+      inline-size: min(100%, 680px);
+      max-inline-size: 680px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    &__text {
+      max-inline-size: 100%;
+    }
+
+    &__actions {
+      justify-content: center;
+    }
+  }
+
+  @include media-down(sm) {
+    &__actions {
+      inline-size: 100%;
+    }
+
+    &__actions .button {
+      inline-size: 100%;
+      min-inline-size: 0;
+    }
+  }
+}
+
+.error-search {
+  padding-block: fluid(44, 28);
+  background-color: var(--role-surface-primary);
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin: fluid(32, 22) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    min-inline-size: 0;
+  }
+
+  &__card {
+    // Base layout (column flex), surface, lift, shadow, border and focus ring
+    // all come from `card` + `card--interactive`; only the centering is local.
+    align-items: center;
+    gap: var(--space-3);
+    block-size: 100%;
+    padding: var(--space-5) var(--space-3);
+    color: var(--role-text-primary);
+    text-align: center;
+    text-decoration: none;
+
+    @include hover {
+      .error-search__icon {
+        --icon-box-color: var(--role-brand-hover);
+      }
+    }
+  }
+
+  &__icon {
+    --icon-box-size: 64px;
+    --icon-box-icon-size: 32px;
+
+    @include transition(color);
+  }
+
+  &__label {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body-strong);
+    line-height: var(--line-height-body);
+  }
+
+  @include media-down(xl) {
+    &__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @include media-down(md) {
+    &__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-inline-size: 520px;
+      margin-inline: auto;
+    }
+  }
+}
+
+.error-help {
+  padding-block: fluid(44, 28) fluid(56, 36);
+  background-color: var(--role-surface-primary);
+
+  &__card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: fluid(40, 20);
+  }
+
+  &__illustration {
+    display: grid;
+    place-items: center;
+    inline-size: clamp(140px, 16vw, 200px);
+  }
+
+  &__picture {
+    display: block;
+    inline-size: 100%;
+  }
+
+  &__image {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: contain;
+    filter: saturate(1.1) contrast(1.06);
+  }
+
+  &__content {
+    min-inline-size: 0;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__text {
+    margin: var(--space-2) 0 0;
+    color: var(--role-text-secondary);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  // Tablet: illustration + text on one row, actions wrap full-width below.
+  @include media-down(xl) {
+    &__card {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    &__actions {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include media-down(md) {
+    &__card {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+
+    &__actions {
+      justify-content: center;
+      inline-size: 100%;
+    }
+  }
+
+  @include media-down(sm) {
+    &__actions {
+      flex-direction: column;
+    }
+
+    &__actions .button {
+      inline-size: 100%;
+      min-inline-size: 0;
+    }
+  }
+}

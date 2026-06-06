@@ -1,0 +1,9 @@
+$gradients: (
+  'hero-brand-glow': linear-gradient(135deg, #1678ff 0%, #081a33 100%),
+  'brand-primary': linear-gradient(90deg, #1664e8 0%, #38b2f6 100%),
+  'brand-soft': linear-gradient(180deg, #93c5fd 0%, #dbeafe 100%),
+  'surface-card': linear-gradient(180deg, #1e293b 0%, #0f172a 100%),
+  'border-deep': linear-gradient(180deg, #081220 0%, #1e293b 100%),
+  'glow-info': radial-gradient(circle, rgb(58 130 246 / 25%) 0%, transparent 70%),
+  'page': radial-gradient(circle at 50% 0, rgb(22 120 255 / 16%) 0, transparent 36rem),
+);

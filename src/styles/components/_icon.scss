@@ -1,0 +1,63 @@
+.icon {
+  --icon-size: 20px;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  inline-size: var(--icon-size);
+  block-size: var(--icon-size);
+  color: currentcolor;
+  fill: none;
+  stroke: currentcolor;
+}
+
+.icon use,
+.icon svg {
+  fill: none;
+  stroke: currentcolor;
+}
+
+.icon svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.icon--sm {
+  --icon-size: 16px;
+}
+
+.icon--md {
+  --icon-size: 24px;
+}
+
+.icon--lg {
+  --icon-size: 32px;
+}
+
+.icon--xl {
+  --icon-size: 40px;
+}
+
+.icon--brand {
+  color: var(--role-accent-brand);
+}
+
+.icon--muted {
+  color: var(--role-text-muted);
+}
+
+.icon--success {
+  color: var(--role-accent-success);
+}
+
+.icon--warning {
+  color: var(--role-accent-warning);
+}
+
+.icon--danger {
+  color: var(--role-accent-danger);
+}
+
+.icon--critical {
+  color: var(--role-accent-critical);
+}

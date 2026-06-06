@@ -1,0 +1,51 @@
+.badge {
+  --badge-color: var(--role-text-secondary);
+  --badge-border: var(--role-border-default);
+  --badge-background: var(--alpha-white-08);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding-block: var(--space-0-5);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--badge-border);
+  border-radius: var(--radius-xs);
+  background-color: var(--badge-background);
+  color: var(--badge-color);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-label);
+  line-height: var(--line-height-small);
+  letter-spacing: var(--letter-spacing-normal);
+  white-space: nowrap;
+}
+
+.badge--info {
+  --badge-color: var(--role-accent-info);
+  --badge-border: var(--role-accent-info);
+  --badge-background: var(--alpha-blue-16);
+}
+
+.badge--success {
+  --badge-color: var(--role-accent-success);
+  --badge-border: var(--role-accent-success);
+  --badge-background: var(--role-success-subtle);
+}
+
+.badge--warning {
+  --badge-color: var(--role-accent-warning);
+  --badge-border: var(--role-accent-warning);
+  --badge-background: var(--role-warning-subtle);
+}
+
+.badge--danger {
+  --badge-color: var(--role-accent-danger);
+  --badge-border: var(--role-accent-danger);
+  --badge-background: var(--role-danger-subtle);
+}
+
+.badge--critical {
+  --badge-color: var(--role-accent-critical);
+  --badge-border: var(--role-accent-critical);
+  --badge-background: var(--role-critical-subtle);
+}

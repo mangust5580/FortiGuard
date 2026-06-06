@@ -1,0 +1,46 @@
+<header class="header" data-js-overlay-menu>
+  <div class="header__inner container">
+    <a class="header__brand logo" href="index.html" aria-label="FortiGuard">
+      <img class="logo__image" src="images/logo.svg" alt="" width="32" height="32">
+      <span class="logo__text">FortiGuard</span>
+    </a>
+
+    <button
+      class="header__burger"
+      type="button"
+      aria-label="Открыть меню"
+      aria-controls="header-menu-panel"
+      aria-expanded="false"
+      data-js-overlay-menu-burger-button
+    >
+      <span class="header__burger-line" aria-hidden="true"></span>
+      <span class="header__burger-line" aria-hidden="true"></span>
+      <span class="header__burger-line" aria-hidden="true"></span>
+    </button>
+
+    <div class="header__panel" id="header-menu-panel" data-js-overlay-menu-panel>
+      <div class="header__panel-overlay" data-js-overlay-menu-close></div>
+
+      <div class="header__drawer">
+        <nav class="header__nav" aria-label="Основная навигация">
+          <ul class="header__menu">
+            <li class="header__item header__item--home"><a class="header__link" href="index.html" data-js-nav-link>Главная</a></li>
+            <li class="header__item"><a class="header__link" href="index.html#features" data-js-nav-link>Возможности</a></li>
+            <li class="header__item"><a class="header__link" href="index.html#solutions" data-js-nav-link>Решения</a></li>
+            <li class="header__item"><a class="header__link" href="index.html#pricing" data-js-nav-link>Тарифы</a></li>
+            <li class="header__item"><a class="header__link" href="index.html#reviews" data-js-nav-link>Отзывы</a></li>
+            <li class="header__item"><a class="header__link" href="index.html#articles" data-js-nav-link>Статьи</a></li>
+            <li class="header__item"><a class="header__link" href="index.html#contacts" data-js-nav-link>Контакты</a></li>
+            <li class="header__item"><a class="header__link" href="index.html#faq" data-js-nav-link>FAQ</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <a class="header__button button button--primary button--sm" href="#demo" data-js-modal-open="demo">
+            <span class="button__text">Запросить демо</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

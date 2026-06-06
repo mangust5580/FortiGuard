@@ -1,0 +1,146 @@
+@use '../helpers' as *;
+
+.select {
+  position: relative;
+  inline-size: 100%;
+
+  &__trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    inline-size: 100%;
+    min-block-size: 48px;
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
+    border: 1px solid var(--role-border-default);
+    border-radius: var(--radius-sm);
+    background-color: var(--role-surface-base);
+    color: var(--role-text-primary);
+    text-align: left;
+
+    @include transition((border-color, background-color, box-shadow, color, transform));
+    @include focus-visible(var(--role-accent-focus), var(--role-surface-page), 1px, 4px);
+  }
+
+  &__value {
+    overflow: hidden;
+    min-inline-size: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    inline-size: 10px;
+    block-size: 10px;
+    transform: translateY(-2px) rotate(45deg);
+    border-block-end: 2px solid currentcolor;
+    border-inline-end: 2px solid currentcolor;
+
+    @include transition-transform;
+  }
+
+  &__dropdown {
+    position: absolute;
+    inset-block-start: calc(100% + 6px);
+    inset-inline: 0;
+    z-index: var(--z-index-overlay);
+    display: none;
+    overflow: auto;
+    max-block-size: 240px;
+    border: 1px solid var(--role-border-default);
+    border-radius: var(--radius-sm);
+    background-color: var(--role-surface-base);
+    box-shadow: var(--shadow-card);
+  }
+
+  &__option {
+    display: block;
+    inline-size: 100%;
+    min-block-size: 44px;
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--role-text-primary);
+    text-align: left;
+
+    @include transition((background-color, color));
+
+    @include hover {
+      background-color: var(--role-hover-overlay);
+    }
+
+    &.is-active {
+      background-color: var(--alpha-blue-16);
+    }
+
+    &.is-selected,
+    &[aria-selected='true'] {
+      background-color: var(--alpha-blue-24);
+      color: var(--role-text-primary);
+    }
+  }
+
+  &.is-open {
+    .select__dropdown {
+      display: block;
+    }
+
+    .select__icon {
+      transform: translateY(2px) rotate(-135deg);
+    }
+  }
+
+  &--error:not(.select--disabled, [aria-disabled='true']) {
+    .select__trigger:not(:disabled, [aria-disabled='true']) {
+      border-color: var(--role-accent-danger);
+
+      @include ring-shadow(var(--role-accent-danger), var(--role-surface-page), 1px, 4px);
+    }
+  }
+
+  &__trigger:disabled,
+  &__trigger[aria-disabled='true'] {
+    border-color: var(--role-border-divider);
+    background-color: var(--role-disabled-bg);
+    box-shadow: none;
+    color: var(--role-text-muted);
+    cursor: not-allowed;
+  }
+
+  &__trigger:disabled:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &__trigger[aria-disabled='true']:focus-visible {
+    @include ring-shadow(var(--role-accent-focus), var(--role-surface-page), 1px, 4px);
+  }
+
+  &--disabled,
+  &[aria-disabled='true'] {
+    .select__trigger {
+      border-color: var(--role-border-divider);
+      background-color: var(--role-disabled-bg);
+      box-shadow: none;
+      color: var(--role-text-muted);
+      cursor: not-allowed;
+    }
+
+    .select__trigger[aria-disabled='true']:focus-visible {
+      @include ring-shadow(var(--role-accent-focus), var(--role-surface-page), 1px, 4px);
+    }
+
+    .select__trigger:disabled:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .select__dropdown {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@use 'media' as *;
+@use '../functions' as *;
+
+// Unified internal page-hero skeleton (articles / legal / error).
+// Shared vertical rhythm, breadcrumbs spacing, 2-column inner grid, content
+// column and a transparent floating illustration with a soft glow — the same
+// systemic treatment used across the internal pages (legal / 404 / contacts).
+// Page-specific elements (kicker, title, lead, code, headline, actions, etc.)
+// stay local to each block; only the common skeleton lives here.
+// Include inside a BEM block; `&__*` resolves to that block's elements:
+//   .articles-hero { @include page-hero($visual-max: 560px); … }
+@mixin page-hero(
+  $content-max: 520px,
+  $visual-max: 560px,
+  $visual-max-mobile: 460px
+) {
+  padding-block: fluid(44, 26) fluid(32, 20);
+  background:
+    radial-gradient(86% 72% at 82% 8%, var(--alpha-blue-24), transparent 72%),
+    var(--role-surface-primary);
+
+  &__breadcrumbs {
+    margin-block-end: fluid(24, 16);
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: fluid(38, 20);
+  }
+
+  &__content {
+    min-inline-size: 0;
+    max-inline-size: $content-max;
+  }
+
+  &__visual {
+    position: relative;
+    place-self: center end;
+    inline-size: min(100%, $visual-max);
+    min-inline-size: 0;
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset-block: 6% 10%;
+      inset-inline: 4% -2%;
+      z-index: -1;
+      opacity: 72%;
+      background: radial-gradient(68% 66% at 52% 52%, var(--alpha-blue-36), transparent 76%);
+      pointer-events: none;
+    }
+  }
+
+  &__picture {
+    position: relative;
+    z-index: 1;
+    display: block;
+    inline-size: 100%;
+  }
+
+  &__image {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: contain;
+  }
+
+  @include media-down(lg) {
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    &__content {
+      order: 2;
+      max-inline-size: 100%;
+    }
+
+    &__visual {
+      order: 1;
+      place-self: center;
+      inline-size: min(100%, $visual-max-mobile);
+    }
+  }
+}

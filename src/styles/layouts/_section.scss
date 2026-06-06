@@ -1,0 +1,64 @@
+@use '../helpers' as *;
+
+.section {
+  padding-block: fluid(120, 64);
+
+  &__header {
+    max-inline-size: 760px;
+    margin-block-end: 0;
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--role-text-primary);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-h2);
+    line-height: var(--line-height-h2);
+  }
+
+  &__title + &__description {
+    margin-block-start: var(--space-4);
+  }
+
+  &__description {
+    max-inline-size: 640px;
+    margin: 0;
+    color: var(--role-text-secondary);
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-start: fluid(24, 16);
+  }
+
+  &__body {
+    min-inline-size: 0;
+  }
+
+  &__header + &__body {
+    margin-block-start: fluid(48, 32);
+  }
+
+  &--compact {
+    padding-block: fluid(80, 48);
+  }
+
+  &--center {
+    .section__header {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .section__description {
+      margin-inline: auto;
+    }
+
+    .section__actions {
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<div class="request-form__fields">
+    <div class="request-form__short-grid request-form__field--full">
+      <label class="field">
+        <span class="field__label visually-hidden">Имя</span>
+        <span class="request-form__field-control">
+          <svg class="request-form__input-icon icon" aria-hidden="true" focusable="false">
+            <use href="icons/sprite.svg#icon-demo-field-user"></use>
+          </svg>
+          <input class="field__control request-form__control" type="text" name="name" autocomplete="name" placeholder="Имя" required>
+        </span>
+      </label>
+
+      <label class="field">
+        <span class="field__label visually-hidden">Рабочий email</span>
+        <span class="request-form__field-control">
+          <svg class="request-form__input-icon icon" aria-hidden="true" focusable="false">
+            <use href="icons/sprite.svg#icon-demo-field-email"></use>
+          </svg>
+          <input class="field__control request-form__control" type="email" name="email" autocomplete="email" placeholder="Рабочий email" required>
+        </span>
+      </label>
+
+      <label class="field">
+        <span class="field__label visually-hidden">Компания</span>
+        <span class="request-form__field-control">
+          <svg class="request-form__input-icon icon" aria-hidden="true" focusable="false">
+            <use href="icons/sprite.svg#icon-demo-field-company"></use>
+          </svg>
+          <input class="field__control request-form__control" type="text" name="company" autocomplete="organization" placeholder="Компания" required>
+        </span>
+      </label>
+
+      <label class="field">
+        <span class="field__label visually-hidden">Телефон</span>
+        <span class="request-form__field-control">
+          <svg class="request-form__input-icon icon" aria-hidden="true" focusable="false">
+            <use href="icons/sprite.svg#icon-demo-field-phone"></use>
+          </svg>
+          <input class="field__control request-form__control" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" data-js-input-mask="phone">
+        </span>
+      </label>
+
+      <div class="field">
+        <span class="field__label visually-hidden" id="demo-request-employees-label">Количество сотрудников</span>
+        <div class="request-form__field-control request-form__field-control--select">
+          <svg class="request-form__input-icon icon" aria-hidden="true" focusable="false">
+            <use href="icons/sprite.svg#icon-demo-field-employees"></use>
+          </svg>
+          <div class="select request-form__select" data-js-select data-js-select-required>
+            <input type="hidden" name="employees" value="" data-js-select-input>
+            <button
+              class="select__trigger request-form__select-trigger"
+              type="button"
+              data-js-select-trigger
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="demo-request-employees-label demo-request-employees-value"
+            >
+              <span class="select__value" data-js-select-value id="demo-request-employees-value">Количество сотрудников</span>
+              <span class="select__icon" aria-hidden="true"></span>
+            </button>
+            <div class="select__dropdown request-form__select-dropdown" role="listbox" aria-labelledby="demo-request-employees-label" data-js-select-dropdown>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="1-50">1–50</button>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="51-200">51–200</button>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="201-500">201–500</button>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="501-1000">501–1000</button>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="1000+">1000+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field__label visually-hidden" id="demo-request-scenario-label">Интересующий сценарий</span>
+        <div class="request-form__field-control request-form__field-control--select">
+          <svg class="request-form__input-icon icon" aria-hidden="true" focusable="false">
+            <use href="icons/sprite.svg#icon-demo-field-scenario"></use>
+          </svg>
+          <div class="select request-form__select" data-js-select data-js-select-required>
+            <input type="hidden" name="scenario" value="" data-js-select-input>
+            <button
+              class="select__trigger request-form__select-trigger"
+              type="button"
+              data-js-select-trigger
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="demo-request-scenario-label demo-request-scenario-value"
+            >
+              <span class="select__value" data-js-select-value id="demo-request-scenario-value">Интересующий сценарий</span>
+              <span class="select__icon" aria-hidden="true"></span>
+            </button>
+            <div class="select__dropdown request-form__select-dropdown" role="listbox" aria-labelledby="demo-request-scenario-label" data-js-select-dropdown>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="Мониторинг угроз">Мониторинг угроз</button>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="Автоматизация реагирования">Автоматизация реагирования</button>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="Защита конечных точек">Защита конечных точек</button>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="Отчёты и аналитика">Отчёты и аналитика</button>
+              <button class="select__option" type="button" role="option" aria-selected="false" data-js-select-option data-value="Комплексная защита">Комплексная защита</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label class="field request-form__field--full request-form__field--comment" data-js-char-counter>
+      <span class="field__label">Комментарий</span>
+      <span class="request-form__field-control request-form__field-control--textarea">
+        <svg class="request-form__input-icon icon" aria-hidden="true" focusable="false">
+          <use href="icons/sprite.svg#icon-demo-field-comment"></use>
+        </svg>
+        <textarea
+          id="demo-request-comment"
+          class="field__control field__control--textarea request-form__control request-form__control--textarea"
+          data-js-char-counter-input
+          name="comment"
+          aria-describedby="demo-request-comment-counter"
+          maxlength="500"
+          placeholder="Расскажите о целях, задачах или инфраструктуре, чтобы мы подготовили релевантную демонстрацию."
+        ></textarea>
+      </span>
+      <output class="request-form__counter" id="demo-request-comment-counter" data-js-char-counter-output for="demo-request-comment">0/500</output>
+    </label>
+
+</div>

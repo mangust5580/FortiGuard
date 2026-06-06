@@ -1,0 +1,31 @@
+.icon-box {
+  --icon-box-size: 44px;
+  --icon-box-icon-size: 32px;
+  --icon-box-border-color: var(--alpha-blue-24);
+  --icon-box-radius: var(--radius-sm);
+  --icon-box-background:
+    radial-gradient(74% 74% at 50% 28%, var(--alpha-blue-16), transparent 82%),
+    var(--alpha-navy-24);
+  --icon-box-shadow:
+    inset 0 0 0 1px var(--alpha-blue-16),
+    inset 0 1px 0 var(--alpha-blue-24);
+  --icon-box-color: var(--role-brand-primary);
+
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--icon-box-size);
+  block-size: var(--icon-box-size);
+  border: 1px solid var(--icon-box-border-color);
+  border-radius: var(--icon-box-radius);
+  background: var(--icon-box-background);
+  box-shadow: var(--icon-box-shadow);
+  color: var(--icon-box-color);
+}
+
+.icon-box__icon {
+  display: block;
+  inline-size: var(--icon-box-icon-size);
+  block-size: var(--icon-box-icon-size);
+}
