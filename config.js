@@ -25,6 +25,33 @@ export default {
     },
     rules: [
       {
+        // Hero dashboard is the LCP image on the homepage. Source is 1600×960,
+        // but it renders at ~360–680px CSS, so emit smaller widths for
+        // phones/tablets and keep the 1x/2x originals for large/hi-dpi screens.
+        match: 'hero/hero-dashboard@2x.png',
+        responsive: {
+          enabled: true,
+          widths: [480, 768, 1280],
+          keepOriginal: true,
+          minSourceWidth: 640,
+        },
+      },
+      {
+        // Review avatars render at 96px (192px @2x) but the sources are 1254×1254.
+        // Emit only the sizes that are actually displayed.
+        match: [
+          'people/alexey-orlov@2x.png',
+          'people/marina-sokolova@2x.png',
+          'people/dmitry-vlasov@2x.png',
+        ],
+        responsive: {
+          enabled: true,
+          widths: [96, 192],
+          keepOriginal: true,
+          minSourceWidth: 192,
+        },
+      },
+      {
         match: 'contacts/contacts-support@2x.png',
         responsive: {
           enabled: true,

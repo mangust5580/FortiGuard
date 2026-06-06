@@ -10,6 +10,11 @@ html {
   color-scheme: dark;
   scroll-padding-block-start: calc(var(--layout-header-height, 73px) + var(--space-6));
   scrollbar-color: var(--role-border-default) var(--role-surface-page);
+
+  // Reserve the classic scrollbar gutter so the viewport width is stable.
+  // Without it, when the vertical scrollbar appears on desktop the layout
+  // reflows (desktop-only CLS; mobile uses overlay scrollbars, so CLS is 0).
+  scrollbar-gutter: stable;
   text-size-adjust: 100%;
 }
 
