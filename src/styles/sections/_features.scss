@@ -22,8 +22,9 @@
   }
 
   &__card {
+    --card-icon-row-min-block-size: calc(var(--space-20) + var(--space-20) + var(--space-4));
+
     block-size: 100%;
-    min-block-size: 154px;
   }
 
   &__card-content {

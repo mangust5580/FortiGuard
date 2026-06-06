@@ -23,5 +23,33 @@ export default {
     prod: {
       formats: { webp: true, avif: true },
     },
+    rules: [
+      {
+        match: 'contacts/contacts-support@2x.png',
+        responsive: {
+          enabled: true,
+          widths: [320, 480],
+          keepOriginal: true,
+          minSourceWidth: 640,
+        },
+      },
+      {
+        match: [
+          'articles/article-1@2x.png',
+          'articles/article-2@2x.png',
+          'articles/article-3@2x.png',
+          'articles/article-4@2x.png',
+          'articles/article-5@2x.png',
+          'articles/article-6@2x.png',
+          'articles/article-9@2x.png',
+        ],
+        responsive: {
+          enabled: true,
+          widths: [320, 480, 640],
+          keepOriginal: true,
+          minSourceWidth: 640,
+        },
+      },
+    ],
   },
 }
