@@ -20,7 +20,10 @@
     align-items: center;
     justify-self: end;
     gap: var(--space-2);
-    color: var(--role-accent-brand);
+
+    // Cyan brand accent (~7.9:1 on the dark surface) instead of the deeper
+    // brand-primary blue (~3.6:1, failed WCAG AA) — keeps the secondary-link look.
+    color: var(--role-brand-hover);
     font-size: var(--font-size-body);
     font-weight: var(--font-weight-body-strong);
     line-height: var(--line-height-body);
@@ -31,6 +34,8 @@
 
     @include hover {
       color: var(--role-brand-hover);
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
   }
 
